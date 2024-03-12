@@ -1,18 +1,26 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
+import { BrowserModule, Title, provideClientHydration } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { HeaderComponent } from './header/header.component';
 import { NavComponent } from './nav/nav.component';
+import { HomeComponent } from './home/home.component';
+import { PortfolioComponent } from './portfolio/portfolio.component';
+import { ResumeComponent } from './resume/resume.component';
+import { ContactComponent } from './contact/contact.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    NavComponent
+    NavComponent,
+    HomeComponent,
+    PortfolioComponent,
+    ResumeComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
@@ -20,7 +28,8 @@ import { NavComponent } from './nav/nav.component';
     TooltipModule.forRoot()
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    Title
   ],
   bootstrap: [AppComponent]
 })
