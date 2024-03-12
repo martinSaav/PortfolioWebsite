@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { HeaderComponent } from './header/header.component';
+import { NavComponent } from './nav/nav.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,
