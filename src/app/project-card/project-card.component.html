@@ -1,14 +1,15 @@
 <div class="card shadow text-center" style="max-width: 350px; min-width: 350px;">
     <div class="card-body">
-        <h5 class="card-tittle">{{projectName}}</h5>
-        <p class="card-text">Project Description</p>
+        <h5 class="card-tittle">{{project.name}}</h5>
+        <p class="card-text">{{project.summary}}</p>
         <a href="#" class="btn btn-primary">View Project</a>
     </div>
     <div class="card-footer">
         <small class="text-muted">Última actualización hace 3 minutos</small>
         <div class="d-flex flex-wrap justify-content-center">
-            <div class="tag me-2 mb-1">Angular</div>
-            <div class="tag me-2 mb-1">TypeScript</div>
+            <div *ngFor="let tag of project.technologies">
+                <div class="tag me-2 mb-1" [style.background-color]="tag.color">{{tag}}</div>
+            </div>
         </div>
     </div>
 </div>
