@@ -20,5 +20,4 @@ export class Tag {
     toString() {
         return this.key;
     }
-
 }
