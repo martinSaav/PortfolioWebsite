@@ -14,7 +14,7 @@ export class ProjectService {
       summary: 'This is a summary of project 1',
       description: 'This is a description of project 1',
       projectLink: ' ',
-      images: ['project1.png'],
+      images: ["../../assets/imgs/img1.png", "../../assets/imgs/img2.png", "../../assets/imgs/img3.png"],
       technologies: [Tag.ANGULAR, Tag.JAVA, Tag.SPRING],
     },
     {
@@ -23,7 +23,7 @@ export class ProjectService {
       summary: 'This is a summary of project 2',
       description: 'This is a description of project 2',
       projectLink: ' ',
-      images: ['project2.png'],
+      images: ["../../assets/imgs/img1.png", "../../assets/imgs/img2.png", "../../assets/imgs/img3.png"],
       technologies: [Tag.ANGULAR],
     },
     {
@@ -32,7 +32,7 @@ export class ProjectService {
       summary: 'This is a summary of project 3',
       description: 'This is a description of project 3',
       projectLink: ' ',
-      images: ['project3.png'],
+      images: ["../../assets/imgs/img1.png", "../../assets/imgs/img2.png", "../../assets/imgs/img3.png"],
       technologies: [Tag.ANGULAR, Tag.TYPESCRIPT],
     },
     {
@@ -41,7 +41,7 @@ export class ProjectService {
       summary: 'This is a summary of project 4',
       description: 'This is a description of project 4',
       projectLink: ' ',
-      images: ['project4.png'],
+      images: ["../../assets/imgs/img1.png", "../../assets/imgs/img2.png", "../../assets/imgs/img3.png"],
       technologies: [Tag.POSTGRESQL, Tag.CSS, Tag.HTML],
     }];
 
