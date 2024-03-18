@@ -45,18 +45,34 @@ export class ProjectService {
       technologies: [Tag.POSTGRESQL, Tag.CSS, Tag.HTML],
     }];
 
-  constructor() { }
-
-  getProjects() {
+  getProjects(): Project[] {
     return this.projects;
   }
 
-  getProject(id: number) : Project {
-    let project = this.projects.find(project => project.id === id);
+  getProject(id: number): Project {
+    let project: Project | undefined = this.projects.find(project => project.id === id);
 
     if (project === undefined) {
       throw new TypeError('The project with id ' + id + ' does not exist');
     }
     return project;
   }
+
+  getProjectsByFilter(filter: Tag[]): Project[] {
+    let filteredProjects: Project[] = [];
+
+    this.projects.forEach(project => {
+      let foundAllTags: boolean = true;
+      filter.forEach(tag => {
+        if (!project.technologies.includes(tag)) {
+          foundAllTags = false;
+        }
+      });
+
+      if (foundAllTags) {
+        filteredProjects.push(project);
+      }
+    });
+    return filteredProjects;
+    }
 }

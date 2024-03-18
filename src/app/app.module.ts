@@ -13,7 +13,10 @@ import { ContactComponent } from './contact/contact.component';
 import { ProjectCardComponent } from './project-card/project-card.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { ProjectModalComponent } from './project-modal/project-modal.component';
-import { CarouselModule } from 'ngx-bootstrap/carousel'; // Import the CarouselModule from the correct package
+import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { CollapseModule } from 'ngx-bootstrap/collapse';
+import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,10 @@ import { CarouselModule } from 'ngx-bootstrap/carousel'; // Import the CarouselM
     AppRoutingModule,
     TooltipModule.forRoot(),
     ModalModule.forRoot(),
-    CarouselModule.forRoot()
+    CarouselModule.forRoot(),
+    CollapseModule.forRoot(),
+    FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [
     provideClientHydration(),
