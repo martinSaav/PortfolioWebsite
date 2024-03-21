@@ -2,7 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Project } from '../_models/Project';
 import { ProjectService } from '../_services/project.service';
-import { Tag } from '../_models/tag';
+import { Tag } from '../_models/Tag';
 
 @Component({
   selector: 'app-portfolio',
