@@ -17,7 +17,7 @@ export class Tag {
 
     }
 
-    toString() {
+    toString(): string {
         return this.key;
     }
 }

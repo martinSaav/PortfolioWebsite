@@ -23,7 +23,17 @@
                                 name="typeScript"
                                 >
                                 <label class="form-check-label">TypeScript</label>
-                            </div> 
+                            </div>
+                            <div class="form-check">
+                                <input 
+                                class="form-check-input position-static me-2" 
+                                type="checkbox"
+                                [(ngModel)]="javaScript"
+                                (change)="filterProjects()"
+                                name="javaScript"
+                                >
+                                <label class="form-check-label">javaScript</label>
+                            </div>
                         </div>
                     </div>
                     

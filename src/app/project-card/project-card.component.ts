@@ -17,7 +17,7 @@ export class ProjectCardComponent {
   constructor(@Inject(BsModalService) private modalService: BsModalService) { 
   }
 
-  openProjectModal() {
+  openProjectModal(): void {
     const ModalOptions: ModalOptions = {
       class: 'modal-lg',
       initialState: {

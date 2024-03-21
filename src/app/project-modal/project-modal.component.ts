@@ -14,8 +14,7 @@ export class ProjectModalComponent {
   constructor(@Inject(BsModalRef) public bsModalRef: BsModalRef) { 
   }
 
-
-  closeProjectModal() {
+  closeProjectModal(): void {
     this.bsModalRef.hide();
   }
 }

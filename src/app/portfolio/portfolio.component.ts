@@ -14,10 +14,9 @@ export class PortfolioComponent implements OnInit {
   projects: Project[] = {} as Project[];
 
   isCollapsed: boolean = true;
-
+  javaScript: boolean = false;
   typeScript: boolean = false;
   angular: boolean = false;
-
   filtering: boolean = false;
 
   constructor(@Inject(Title) private titleService: Title, @Inject(ProjectService) private projectService: ProjectService) {
@@ -34,6 +33,10 @@ export class PortfolioComponent implements OnInit {
   filterProjects(): void {
     let filtertags: Tag[] = [];
 
+    if (this.javaScript) {
+      filtertags.push(Tag.JAVASCRIPT);
+    }
+
     if (this.typeScript) {
       filtertags.push(Tag.TYPESCRIPT);
     }
@@ -42,7 +45,7 @@ export class PortfolioComponent implements OnInit {
       filtertags.push(Tag.ANGULAR);
     }
 
-    if (this.typeScript || this.angular) {
+    if (this.typeScript || this.angular || this.javaScript) {
       this.filtering = true;
     } else {
       this.filtering = false;
@@ -54,6 +57,7 @@ export class PortfolioComponent implements OnInit {
   clearFilter(): void {
     this.typeScript = false;
     this.angular = false;
+    this.javaScript = false;
     this.projects = this.projectService.getProjects();
     this.filtering = false;
   }
