@@ -14,7 +14,7 @@ export class ProjectService {
       summary: 'Pagina web muy basica de clases particulares hecho con HTML, CSS y JavaScript.',
       description: 'Infinity Math es una pagina web muy basica de clases particulares hecho con HTML, CSS y JavaScript. La pagina web cuenta con un inicio, las clases particulares, sede y formulario de contacto. La pagina web es responsiva y se ve bien en dispositivos moviles y aunque la pagina web no tiene informacion real, es un buen ejemplo de como se veria una pagina web de clases particulares. Despliegue en Netlify.',
       projectLink: 'https://chic-blini-e43987.netlify.app',
-      images: ["./assets/imgs/infinity_math1.png", "./assets/imgs/infinity_math2.png", "/.assets/imgs/infinity_math3.png"],
+      images: ["./assets/imgs/infinity_math1.png", "./assets/imgs/infinity_math2.png", "./assets/imgs/infinity_math3.png"],
       technologies: [Tag.HTML, Tag.CSS, Tag.JAVASCRIPT],
     },
   ];
