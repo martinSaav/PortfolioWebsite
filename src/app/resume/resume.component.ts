@@ -12,12 +12,14 @@ export class ResumeComponent {
     this.titleService.setTitle('Martin Estrada - Resume');
   }
 
-  downloadFile(): void {
-    let link = this.renderer.createElement('a');
-    link.setAttribute('target', '_blank');
-    link.setAttribute('href', 'assets/pdf/CV_martin_estrada.pdf');
-    link.setAttribute('download', 'CV_martin_estrada.pdf');
+  downloadFile(fileId: string) {
+    const googleDriveUrl = `https://drive.google.com/uc?export=download&id=${fileId}`;
+    const link = this.renderer.createElement('a');
+    link.setAttribute('href', googleDriveUrl);
     link.click();
     link.remove();
+  }
+  openLink(link: string) {
+    window.open(link, '_blank');
   }
 }
