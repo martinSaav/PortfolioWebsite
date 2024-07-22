@@ -1,0 +1,16 @@
+<div class="container mt-4">
+    <h2 class="mb-4">Certificaciones</h2>
+    <div *ngFor="let cert of certifications" class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">{{ cert.name }}</h5>
+        <img [src]="cert.image" alt="{{ cert.name }}" class="img-thumbnail me-3" style="width: 50px; height: 50px;">
+
+        <h6 class="card-subtitle mt-2 mb-1 text-muted">{{ cert.issuingOrganization }}</h6>
+        <p class="card-text">
+          <strong>Issue Date:</strong> {{ cert.issueDate | date }}<br>
+        </p>
+        <a [href]="cert.credentialUrl" target="_blank" class="card-link">See Credential</a>
+      </div>
+    </div>
+  </div>
+  

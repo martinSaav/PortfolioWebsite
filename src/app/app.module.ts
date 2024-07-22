@@ -17,6 +17,7 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CertificationsComponent } from './certifications/certifications.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ResumeComponent,
     ContactComponent,
     ProjectCardComponent,
-    ProjectModalComponent
+    ProjectModalComponent,
+    CertificationsComponent
   ],
   imports: [
     BrowserModule,

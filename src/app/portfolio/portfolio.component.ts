@@ -22,6 +22,7 @@ export class PortfolioComponent implements OnInit {
   constructor(@Inject(Title) private titleService: Title, @Inject(ProjectService) private projectService: ProjectService) {
     this.titleService.setTitle('Martin Estrada - Portfolio');
   }
+  
   ngOnInit(): void {
     this.projects = this.projectService.getProjects();
   }
