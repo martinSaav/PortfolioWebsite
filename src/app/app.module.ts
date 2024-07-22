@@ -18,6 +18,7 @@ import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CertificationsComponent } from './certifications/certifications.component';
+import { ContactFormComponent } from './contact-form/contact-form.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { CertificationsComponent } from './certifications/certifications.compone
     ContactComponent,
     ProjectCardComponent,
     ProjectModalComponent,
-    CertificationsComponent
+    CertificationsComponent,
+    ContactFormComponent
   ],
   imports: [
     BrowserModule,
