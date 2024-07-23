@@ -16,7 +16,10 @@ export class ContactFormComponent {
   };
 
   sendEmail() {
-    emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this.formData, 'YOUR_USER_ID')
+    emailjs.init({
+      publicKey: 'ZWP66zSy6DU8L0Rh6',
+    });
+    emailjs.send('service_n5cxyz5', 'template_89rnr5j', this.formData)
       .then((response: EmailJSResponseStatus) => {
         console.log('SUCCESS!', response.status, response.text);
       }, (error) => {
