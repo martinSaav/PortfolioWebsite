@@ -1,13 +1,28 @@
-<form (ngSubmit)="sendEmail()">
-    <label for="name">Name:</label>
-    <input type="text" id="name" [(ngModel)]="formData.name" name="name" required>
-  
-    <label for="email">Email:</label>
-    <input type="email" id="email" [(ngModel)]="formData.email" name="email" required>
-  
-    <label for="message">Message:</label>
-    <textarea id="message" [(ngModel)]="formData.message" name="message" required></textarea>
-  
-    <button type="submit">Send</button>
-  </form>
+<div class="container ">
+  <div class="card">
+    <div class="card-body">
+      <h3 class="display-6">Formulario de contacto</h3>
+      <p class="lead">Si preferís, podés enviarme un mensaje a través de este formulario:</p>
+      <form (ngSubmit)="sendEmail()">
+        <div class="mb-3">
+          <label for="name" class="form-label">Nombre:</label>
+          <input type="text" id="name" [(ngModel)]="formData.name" name="name" required class="form-control">
+        </div>
+
+        <div class="mb-3">
+          <label for="email" class="form-label">Email:</label>
+          <input type="email" id="email" [(ngModel)]="formData.email" name="email" required class="form-control">
+        </div>
+
+        <div class="mb-3">
+          <label for="message" class="form-label">Mensaje:</label>
+          <textarea id="message" [(ngModel)]="formData.message" name="message" required class="form-control" rows="4"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Enviar</button>
+      </form>
+    </div>
+  </div>
+</div>
+
   

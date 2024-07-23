@@ -22,6 +22,11 @@ export class ContactFormComponent {
     emailjs.send('service_n5cxyz5', 'template_89rnr5j', this.formData)
       .then((response: EmailJSResponseStatus) => {
         console.log('SUCCESS!', response.status, response.text);
+        this.formData = {
+          name: '',
+          email: '',
+          message: ''
+        };
       }, (error) => {
         console.log('FAILED...', error);
       });
