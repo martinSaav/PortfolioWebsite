@@ -7,9 +7,9 @@
 
         <h6 class="card-subtitle mt-2 mb-1 text-muted">{{ cert.issuingOrganization }}</h6>
         <p class="card-text">
-          <strong>Issue Date:</strong> {{ cert.issueDate | date }}<br>
+          <strong>Fecha de experición:</strong> {{ cert.issueDate | date }}<br>
         </p>
-        <a [href]="cert.credentialUrl" target="_blank" class="card-link">See Credential</a>
+        <a [href]="cert.credentialUrl" target="_blank" class="card-link">Ver certificado</a>
       </div>
     </div>
   </div>

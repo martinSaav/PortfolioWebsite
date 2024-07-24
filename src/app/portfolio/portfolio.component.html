@@ -1,65 +1,68 @@
-<div class="container">
 
-    <div class="mb-2">
-        <div>
-            <button class="btn btn-outline-primary mb-2 me-2" (click)="toggleCollapse()">Filtrar</button>
-            <button class="btn btn-outline-secondary mb-2 me-2"(click)="clearFilter()" [hidden]="!filtering">Limpiar</button>
-        </div>
+<div class="mt-4">
+    <h1 class="text-center">Portfolio</h1>
+    <p class="text-center">Aca encontrarás algunos de los proyectos que he realizado.</p>
+</div>
+
+<div class="mb-2">
+    <div>
+        <button class="btn btn-outline-primary mb-2 me-2" (click)="toggleCollapse()">Filtrar</button>
+        <button class="btn btn-outline-secondary mb-2 me-2"(click)="clearFilter()" [hidden]="!filtering">Limpiar</button>
     </div>
+</div>
 
-    <div [collapse]="isCollapsed" [isAnimated]="true">
-        <div class="border mb-2 shadow-sm" style="width: 250px;">
-            <form>
-                <div class="row mx-0">
-                    <div class="col">
-                        <small><b>Lenguajes:</b></small>
-                        <div class="form-group">
-                            <div class="form-check">
-                                <input 
-                                class="form-check-input position-static me-2" 
-                                type="checkbox"
-                                [(ngModel)]="typeScript"
-                                (change)="filterProjects()"
-                                name="typeScript"
-                                >
-                                <label class="form-check-label">TypeScript</label>
-                            </div>
-                            <div class="form-check">
-                                <input 
-                                class="form-check-input position-static me-2" 
-                                type="checkbox"
-                                [(ngModel)]="javaScript"
-                                (change)="filterProjects()"
-                                name="javaScript"
-                                >
-                                <label class="form-check-label">javaScript</label>
-                            </div>
+<div [collapse]="isCollapsed" [isAnimated]="true">
+    <div class="border mb-2 shadow-sm" style="width: 250px;">
+        <form>
+            <div class="row mx-0">
+                <div class="col">
+                    <small><b>Lenguajes:</b></small>
+                    <div class="form-group">
+                        <div class="form-check">
+                            <input 
+                            class="form-check-input position-static me-2" 
+                            type="checkbox"
+                            [(ngModel)]="typeScript"
+                            (change)="filterProjects()"
+                            name="typeScript"
+                            >
+                            <label class="form-check-label">TypeScript</label>
                         </div>
-                    </div>
-                    
-                    <div class="col">
-                        <small><b>Frameworks:</b></small>
-                        <div class="form-group">
-                            <div class="form-check">
-                                <input 
-                                class="form-check-input position-static me-2" 
-                                type="checkbox"
-                                [(ngModel)]="angular"
-                                (change)="filterProjects()"
-                                name="angular"
-                                >
-                                <label class="form-check-label">Angular</label>
-                            </div> 
+                        <div class="form-check">
+                            <input 
+                            class="form-check-input position-static me-2" 
+                            type="checkbox"
+                            [(ngModel)]="javaScript"
+                            (change)="filterProjects()"
+                            name="javaScript"
+                            >
+                            <label class="form-check-label">javaScript</label>
                         </div>
                     </div>
                 </div>
-            </form>
-        </div>
+                
+                <div class="col">
+                    <small><b>Frameworks:</b></small>
+                    <div class="form-group">
+                        <div class="form-check">
+                            <input 
+                            class="form-check-input position-static me-2" 
+                            type="checkbox"
+                            [(ngModel)]="angular"
+                            (change)="filterProjects()"
+                            name="angular"
+                            >
+                            <label class="form-check-label">Angular</label>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+        </form>
     </div>
+</div>
 
-    <div class="row">
-        <div *ngFor="let project of projects" class="col-lg-4 col-md-6 col-sm-12 mb-4" style="max-width: 380px; min-width: 380px;">
-            <app-project-card [project]="project" ></app-project-card>            
-        </div>
+<div class="row">
+    <div *ngFor="let project of projects" class="col-lg-4 col-md-6 col-sm-12 mb-4" style="max-width: 380px; min-width: 380px;">
+        <app-project-card [project]="project" ></app-project-card>            
     </div>
 </div>

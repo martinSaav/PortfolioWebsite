@@ -32,7 +32,7 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
     ProjectCardComponent,
     ProjectModalComponent,
     CertificationsComponent,
-    ContactFormComponent
+    ContactFormComponent,
   ],
   imports: [
     BrowserModule,
