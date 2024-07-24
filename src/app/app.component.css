@@ -1,0 +1,10 @@
+
+.fixed-header {
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    background-color: white; /* Asegúrate de que el fondo sea consistente */
+    box-shadow: 0 4px 2px -2px gray;
+  }
