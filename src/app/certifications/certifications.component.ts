@@ -1,6 +1,5 @@
 import { Component, Inject } from '@angular/core';
-import { Certification } from '../_models/certification';
-import { Title } from '@angular/platform-browser';
+import { Certification } from '../_models/Certification';
 import { CertificationService } from '../_services/certification.service';
 
 @Component({
@@ -12,7 +11,7 @@ export class CertificationsComponent {
 
   certifications: Certification[] = {} as Certification[];
 
-  constructor(@Inject(Title) private titleService: Title, @Inject(CertificationService) private certificationService: CertificationService) {
+  constructor(@Inject(CertificationService) private certificationService: CertificationService) {
   }
   ngOnInit(): void {
     this.certifications = this.certificationService.getAllcertifications();
