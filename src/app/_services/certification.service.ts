@@ -26,7 +26,7 @@ export class CertificationService {
     {
       id: 2,
       name: 'Profesional Testing Master',
-      image: 'https://scontent.faep8-2.fna.fbcdn.net/v/t39.30808-1/299039088_5398032853612957_6760023507448554142_n.jpg?stp=dst-jpg_p200x200&_nc_cat=100&ccb=1-7&_nc_sid=f4b9fd&_nc_eui2=AeHPWg7ewVus_RZhkC9TGJ_CPheb5mx4QjU-F5vmbHhCNT3qFv1_fAPfEMpi7KZUq5ifG87hOy16TzycGayxq0EA&_nc_ohc=SS3Ske860vwQ7kNvgEl5Sat&_nc_ht=scontent.faep8-2.fna&oh=00_AYA5DcdINE7kR_Kr0CfdRG0YiADGhB1JotBFKPn0elUWIw&oe=66B96A42',
+      image: 'https://media.licdn.com/dms/image/v2/C4D0BAQEovaJU3sIB6g/company-logo_200_200/company-logo_200_200/0/1661176830309/programa_empujar_logo?e=1733356800&v=beta&t=Kzh_i-Md9Dq0hQw8kREspZSwdRCz2P6I4YTBFnECoBE',
       issuingOrganization: 'Fundacion Empujar',
       issueDate: new Date('2024-08-03T00:00:00'),
       credentialUrl: 'https://drive.google.com/file/d/17jNCas-Y-zQ_ujYdCnX8_cfNXc6W5Vol/view?usp=sharing'
@@ -34,7 +34,7 @@ export class CertificationService {
     {
       id: 3,
       name: 'Asistencia perfecta',
-      image: 'https://scontent.faep8-2.fna.fbcdn.net/v/t39.30808-1/299039088_5398032853612957_6760023507448554142_n.jpg?stp=dst-jpg_p200x200&_nc_cat=100&ccb=1-7&_nc_sid=f4b9fd&_nc_eui2=AeHPWg7ewVus_RZhkC9TGJ_CPheb5mx4QjU-F5vmbHhCNT3qFv1_fAPfEMpi7KZUq5ifG87hOy16TzycGayxq0EA&_nc_ohc=SS3Ske860vwQ7kNvgEl5Sat&_nc_ht=scontent.faep8-2.fna&oh=00_AYA5DcdINE7kR_Kr0CfdRG0YiADGhB1JotBFKPn0elUWIw&oe=66B96A42',
+      image: 'https://media.licdn.com/dms/image/v2/C4D0BAQEovaJU3sIB6g/company-logo_200_200/company-logo_200_200/0/1661176830309/programa_empujar_logo?e=1733356800&v=beta&t=Kzh_i-Md9Dq0hQw8kREspZSwdRCz2P6I4YTBFnECoBE',
       issuingOrganization: 'Fundacion Empujar',
       issueDate: new Date('2024-08-03T00:00:00'),
       credentialUrl: 'https://drive.google.com/file/d/1mTmAvBr5gU4X4L8ZXxPNQA_3Jr7Vzgsw/view?usp=sharing'
