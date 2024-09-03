@@ -33,6 +33,22 @@ export class CertificationService {
     },
     {
       id: 3,
+      name: 'Testing de Software',
+      image: 'https://media.licdn.com/dms/image/v2/C4D0BAQHkHKKEsnGofA/company-logo_200_200/company-logo_200_200/0/1631310008288?e=1733356800&v=beta&t=4LZsy_VCogeFH-gXxdL74dXYA0jByQd8qDIs273F_Wo',
+      issuingOrganization: 'Universidad Tecnológica Nacional Buenos Aires',
+      issueDate: new Date('2024-08-19T00:00:00'),
+      credentialUrl: 'https://drive.google.com/file/d/1zgyWxZRuVnL2RDVrMdbGjVYbLsnxvOXR/view?usp=sharing'
+    },
+    {
+      id: 4,
+      name: 'Java Front-End',
+      image: 'https://media.licdn.com/dms/image/v2/D4D0BAQGzaTgKCbOWgg/company-logo_200_200/company-logo_200_200/0/1715023353410/saalv_logo?e=1733356800&v=beta&t=lykmZIQ-qECVwBFYcZJMSnvqV0ZCuCc7RfzB_y9vseA',
+      issuingOrganization: 'Subsecretaría de Aprendizaje a lo Largo de la Vida',
+      issueDate: new Date('2024-08-29T00:00:00'),
+      credentialUrl: 'https://drive.google.com/file/d/1ji6ZuIF84JgeoC3A2C1Z_dO4Vcd1IXdb/view?usp=sharing'
+    },
+    {
+      id: 5,
       name: 'Asistencia perfecta',
       image: 'https://media.licdn.com/dms/image/v2/C4D0BAQEovaJU3sIB6g/company-logo_200_200/company-logo_200_200/0/1661176830309/programa_empujar_logo?e=1733356800&v=beta&t=Kzh_i-Md9Dq0hQw8kREspZSwdRCz2P6I4YTBFnECoBE',
       issuingOrganization: 'Fundacion Empujar',
@@ -40,7 +56,7 @@ export class CertificationService {
       credentialUrl: 'https://drive.google.com/file/d/1mTmAvBr5gU4X4L8ZXxPNQA_3Jr7Vzgsw/view?usp=sharing'
     },
     {
-      id: 4,
+      id: 6,
       name: 'Ingles A2+',
       image: 'https://seeklogo.com/images/P/pearson-logo-2D49F7673A-seeklogo.com.png',
       issuingOrganization: 'Academia BA Emprende',
@@ -48,7 +64,7 @@ export class CertificationService {
       credentialUrl: 'https://drive.google.com/file/d/1sVzZPkHNInO5Ov8UHRZeBAVTr-053_3K/view?usp=sharing'
     },
     {
-      id: 5,
+      id: 7,
       name: 'Análisis de Datos 1',
       image: 'https://academiaba.buenosaires.gob.ar/wp-content/uploads/2021/07/Logo-AcademiaBA-2.png',
       issuingOrganization: 'Academia BA Emprende',
@@ -56,7 +72,7 @@ export class CertificationService {
       credentialUrl: 'https://drive.google.com/file/d/1kYbj63gdhUZvVvEjIywpzMYi7236Bgrf/view?usp=sharing'
     },
     {
-      id: 6,
+      id: 8,
       name: 'Análisis de Datos 2',
       image: 'https://academiaba.buenosaires.gob.ar/wp-content/uploads/2021/07/Logo-AcademiaBA-2.png',
       issuingOrganization: 'Academia BA Emprende',
