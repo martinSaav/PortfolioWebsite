@@ -8,3 +8,28 @@
     background-color: white; /* Asegúrate de que el fondo sea consistente */
     box-shadow: 0 4px 2px -2px gray;
   }
+
+
+  /* Define la animación */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Clase para aplicar la animación */
+.animate {
+  opacity: 0; /* Comienza con el elemento invisible */
+  transition: opacity 0.7s, transform 0.7s;
+}
+
+/* Clase para activar la animación */
+.in-view {
+  opacity: 1; /* Hace el elemento visible */
+  animation: fadeInUp 0.7s forwards; /* Ejecuta la animación */
+}
