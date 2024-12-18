@@ -29,6 +29,16 @@ export class CertificationService {
     },
     {
       id: 2,
+      name: 'AWS Educate Getting Started with Storage',
+      image: './assets/imgs/aws-educate-getting-started-with-storage.png',
+      imageHeight: 100,
+      imageWidth: 100,
+      issuingOrganization: 'AWS Educate',
+      issueDate: new Date('2024-12-18T00:00:00'),
+      credentialUrl: 'https://www.credly.com/badges/8e5c75d1-1dee-4b1a-b8e5-4d4d6cc9c259/public_url'
+    },
+    {
+      id: 2,
       name: 'Python Full Stack',
       image: './assets/imgs/codo_a_codo_logo.png',
       imageHeight: 100,
@@ -56,6 +66,26 @@ export class CertificationService {
       issuingOrganization: 'Universidad Tecnológica Nacional Buenos Aires',
       issueDate: new Date('2024-08-19T00:00:00'),
       credentialUrl: 'https://drive.google.com/file/d/1zgyWxZRuVnL2RDVrMdbGjVYbLsnxvOXR/view?usp=sharing'
+    },
+    {
+      id: 4,
+      name: 'Introducción a la Ciberseguridad',
+      image: './assets/imgs/base 4.png',
+      imageHeight: 100,
+      imageWidth: 160,
+      issuingOrganization: 'BASE4 Security S.A',
+      issueDate: new Date('2024-09-05T00:00:00'),
+      credentialUrl: 'https://drive.google.com/file/d/10BlDwSUriSDuXLwdjA09Rm_Wsox-7FkI/view?usp=sharing'
+    },
+    {
+      id: 4,
+      name: 'Asistente en la Ekoparty Security Conference 2024',
+      image: './assets/imgs/eko party.png',
+      imageHeight: 100,
+      imageWidth: 100,
+      issuingOrganization: 'Ekoparty Security Conference',
+      issueDate: new Date('2024-11-15T00:00:00'),
+      credentialUrl: 'https://drive.google.com/file/d/1v9Pgu6jC8ASYG6LEhdFCtRPAiP0Rwd6W/view?usp=sharing'
     },
     {
       id: 5,
