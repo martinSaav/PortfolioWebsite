@@ -29,7 +29,7 @@ export class CertificationService {
     },
     {
       id: 2,
-      name: 'AWS Educate Getting Started with Storage',
+      name: 'AWS Getting Started with Storage',
       image: './assets/imgs/aws-educate-getting-started-with-storage.png',
       imageHeight: 100,
       imageWidth: 100,
@@ -72,7 +72,7 @@ export class CertificationService {
       name: 'Introducción a la Ciberseguridad',
       image: './assets/imgs/base 4.png',
       imageHeight: 100,
-      imageWidth: 160,
+      imageWidth: 170,
       issuingOrganization: 'BASE4 Security S.A',
       issueDate: new Date('2024-09-05T00:00:00'),
       credentialUrl: 'https://drive.google.com/file/d/10BlDwSUriSDuXLwdjA09Rm_Wsox-7FkI/view?usp=sharing'
@@ -86,6 +86,16 @@ export class CertificationService {
       issuingOrganization: 'Ekoparty Security Conference',
       issueDate: new Date('2024-11-15T00:00:00'),
       credentialUrl: 'https://drive.google.com/file/d/1v9Pgu6jC8ASYG6LEhdFCtRPAiP0Rwd6W/view?usp=sharing'
+    },
+    {
+      id: 5,
+      name: 'Impulsando Talento IT',
+      image: './assets/imgs/fk_tech.png',
+      imageHeight: 100,
+      imageWidth: 150,
+      issuingOrganization: 'FK Tech Solutions Factory',
+      issueDate: new Date('2024-12-27T00:00:00'),
+      credentialUrl: 'https://drive.google.com/file/d/1_kDGlIyYTG-SqPwhCCv4GPhvA0spvcop/view?usp=sharing'
     },
     {
       id: 5,
