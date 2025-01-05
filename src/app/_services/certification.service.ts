@@ -39,6 +39,16 @@ export class CertificationService {
     },
     {
       id: 2,
+      name: 'AWS Getting Started with Compute',
+      image: './assets/imgs/aws-educate-getting-started-with-compute.png',
+      imageHeight: 100,
+      imageWidth: 100,
+      issuingOrganization: 'AWS Educate',
+      issueDate: new Date('2025-01-04T00:00:00'),
+      credentialUrl: 'https://www.credly.com/badges/e4845be4-d350-4313-a55c-bb18d3657cdc/public_url'
+    },
+    {
+      id: 2,
       name: 'Python Full Stack',
       image: './assets/imgs/codo_a_codo_logo.png',
       imageHeight: 100,
