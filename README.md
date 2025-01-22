@@ -1,3 +1,5 @@
+[![pages-build-deployment](https://github.com/martinSaav/PortfolioWebsite/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/martinSaav/PortfolioWebsite/actions/workflows/pages/pages-build-deployment)
+
 # PortfolioWebsite
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.12
