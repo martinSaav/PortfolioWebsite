@@ -19,6 +19,14 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CertificationsComponent } from './certifications/certifications.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
+import {HttpClientModule, HttpClient} from '@angular/common/http';
+import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
+
 
 @NgModule({
   declarations: [
@@ -42,7 +50,16 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
     CarouselModule.forRoot(),
     CollapseModule.forRoot(),
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    BrowserModule,
+    HttpClientModule,
+    TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: HttpLoaderFactory,
+                deps: [HttpClient]
+            }
+        })
   ],
   providers: [
     provideClientHydration(),
