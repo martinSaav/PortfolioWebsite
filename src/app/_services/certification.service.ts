@@ -38,7 +38,7 @@ export class CertificationService {
       credentialUrl: 'https://www.credly.com/badges/8e5c75d1-1dee-4b1a-b8e5-4d4d6cc9c259/public_url'
     },
     {
-      id: 2,
+      id: 3,
       name: 'AWS Getting Started with Compute',
       image: './assets/imgs/aws-educate-getting-started-with-compute.png',
       imageHeight: 100,
@@ -46,6 +46,36 @@ export class CertificationService {
       issuingOrganization: 'AWS Educate',
       issueDate: new Date('2025-01-04T00:00:00'),
       credentialUrl: 'https://www.credly.com/badges/e4845be4-d350-4313-a55c-bb18d3657cdc/public_url'
+    },
+    {
+      id: 4,
+      name: 'AWS Getting Started with Networking',
+      image: './assets/imgs/aws-educate-getting-started-with-networking.png',
+      imageHeight: 100,
+      imageWidth: 100,
+      issuingOrganization: 'AWS Educate',
+      issueDate: new Date('2025-01-27T00:00:00'),
+      credentialUrl: 'https://www.credly.com/badges/2cdcba5f-63d1-4d72-be77-153f08baa7ac/public_url'
+    },
+    {
+      id: 5,
+      name: 'AWS Getting Started with Databases',
+      image: './assets/imgs/aws-educate-getting-started-with-databases.png',
+      imageHeight: 100,
+      imageWidth: 100,
+      issuingOrganization: 'AWS Educate',
+      issueDate: new Date('2025-02-18T00:00:00'),
+      credentialUrl: 'https://www.credly.com/badges/e4e21dc6-6dd2-4ee5-959d-8c4b77dcdcbf/public_url'
+    },
+    {
+      id: 5,
+      name: 'AWS Getting Started with Cloud Ops',
+      image: './assets/imgs/aws-educate-getting-started-with-cloud-ops.png',
+      imageHeight: 100,
+      imageWidth: 100,
+      issuingOrganization: 'AWS Educate',
+      issueDate: new Date('2025-02-19T00:00:00'),
+      credentialUrl: 'https://www.credly.com/badges/31b906e1-6443-4f70-8c98-1b6ec5269704/public_url'
     },
     {
       id: 2,
