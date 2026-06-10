@@ -1,20 +1,21 @@
 import { Component, Inject } from '@angular/core';
+import { DialogRef, DIALOG_DATA } from '@angular/cdk/dialog';
 import { Project } from '../_models/Project';
-import { BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
+  standalone: false,
   selector: 'app-project-modal',
   templateUrl: './project-modal.component.html',
   styleUrl: './project-modal.component.css'
 })
 export class ProjectModalComponent {
 
-  project: Project = {} as Project;
-
-  constructor(@Inject(BsModalRef) public bsModalRef: BsModalRef) { 
-  }
+  constructor(
+    public dialogRef: DialogRef,
+    @Inject(DIALOG_DATA) public project: Project
+  ) {}
 
   closeProjectModal(): void {
-    this.bsModalRef.hide();
+    this.dialogRef.close();
   }
 }

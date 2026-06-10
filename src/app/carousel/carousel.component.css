@@ -1,0 +1,53 @@
+.carousel-container {
+  position: relative;
+  background: #000;
+}
+
+.carousel-img {
+  max-height: 350px;
+  object-fit: contain;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.carousel-control-prev { left: 8px; }
+.carousel-control-next { right: 8px; }
+
+.carousel-indicators-custom {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+}
+
+.indicator-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.5);
+  padding: 0;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.indicator-dot.active {
+  background: #fff;
+}

@@ -1,8 +1,9 @@
-import { Component, Inject } from '@angular/core';
+﻿import { Component, Inject } from '@angular/core';
 import { Certification } from '../_models/Certification';
 import { CertificationService } from '../_services/certification.service';
 
 @Component({
+  standalone: false,
   selector: 'app-certifications',
   templateUrl: './certifications.component.html',
   styleUrl: './certifications.component.css'

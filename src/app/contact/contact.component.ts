@@ -1,7 +1,8 @@
-import { Component, Inject } from '@angular/core';
+﻿import { Component, Inject } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
 @Component({
+  standalone: false,
   selector: 'app-contact',
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.css'
