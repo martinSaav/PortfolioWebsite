@@ -11,7 +11,7 @@
     </div>
 </div>
 
-<div [collapse]="isCollapsed" [isAnimated]="true">
+<div [@expandCollapse]="isCollapsed ? 'collapsed' : 'expanded'">
     <div class="border mb-2 shadow-sm" style="width: 250px;">
         <form>
             <div class="row mx-0">
