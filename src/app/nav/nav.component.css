@@ -1,0 +1,21 @@
+nav {
+  background-color: #1e293b;
+  border-bottom: 1px solid #334155 !important;
+  margin-bottom: 0 !important;
+}
+
+.nav-link {
+  color: #94a3b8 !important;
+  font-size: 0.875rem;
+  letter-spacing: 0.04em;
+  transition: color 0.2s;
+  padding: 0.6rem 1rem;
+}
+
+.nav-link:hover {
+  color: #38bdf8 !important;
+}
+
+.nav-link.text-dark {
+  color: #38bdf8 !important;
+}

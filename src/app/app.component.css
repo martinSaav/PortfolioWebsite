@@ -1,16 +1,21 @@
-
 .fixed-header {
-    position: fixed;
-    width: 100%;
-    z-index: 100;
-    top: 0;
-    left: 0;
-    background-color: white; /* Asegúrate de que el fondo sea consistente */
-    box-shadow: 0 4px 2px -2px gray;
-  }
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  background-color: #1e293b;
+  border-bottom: 1px solid #334155;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+}
 
+.dark-section {
+  background-color: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+}
 
-  /* Define la animación */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -22,14 +27,12 @@
   }
 }
 
-/* Clase para aplicar la animación */
 .animate {
-  opacity: 0; /* Comienza con el elemento invisible */
+  opacity: 0;
   transition: opacity 0.9s, transform 0.9s;
 }
 
-/* Clase para activar la animación */
 .in-view {
-  opacity: 1; /* Hace el elemento visible */
-  animation: fadeInUp 0.9s forwards; /* Ejecuta la animación */
+  opacity: 1;
+  animation: fadeInUp 0.9s forwards;
 }

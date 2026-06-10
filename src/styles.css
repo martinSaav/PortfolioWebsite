@@ -1,34 +1,230 @@
-/* You can add global styles to this file, and also import other style files */
 @import '@angular/cdk/overlay-prebuilt.css';
 
-.cdk-overlay-backdrop.cdk-overlay-backdrop-showing {
-  background: rgba(0, 0, 0, 0.5);
+:root {
+  --bg-page: #0f172a;
+  --bg-surface: #1e293b;
+  --bg-surface-2: #243447;
+  --border-color: #334155;
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --accent: #38bdf8;
+  --accent-hover: #7dd3fc;
+  --accent-dim: #0c4a6e;
 }
 
-.cdk-overlay-pane .modal-content {
-  border-radius: 0.375rem;
-  max-height: 90vh;
-  overflow-y: auto;
-}
 * {
-    font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 body {
-    margin-top: 250px;
+  margin-top: 200px;
+  background-color: var(--bg-page);
+  color: var(--text-primary);
 }
 
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-primary);
+}
+
+p {
+  color: var(--text-secondary);
+}
+
+a {
+  color: var(--accent);
+}
+
+a:hover {
+  color: var(--accent-hover);
+}
+
+hr {
+  border-color: var(--border-color);
+  opacity: 1;
+}
+
+strong, b, small {
+  color: var(--text-primary);
+}
+
+/* Tags */
 .tag {
-    padding: 0 20px;
-    height: 30px;
-    width: fit-content;
-    font-size: 14px;
-    line-height: 30px;
-    border-radius: 25px;
-    background-color: blue;
-    color: white;
+  padding: 0 12px;
+  height: 24px;
+  width: fit-content;
+  font-size: 12px;
+  line-height: 24px;
+  border-radius: 4px;
+  background-color: var(--accent-dim);
+  color: var(--accent);
+  font-family: 'Courier New', monospace;
+  border: 1px solid rgba(56, 189, 248, 0.25);
+}
+
+/* Modal */
+.cdk-overlay-backdrop.cdk-overlay-backdrop-showing {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.cdk-overlay-pane .modal-content {
+  border-radius: 0.5rem;
+  max-height: 90vh;
+  overflow-y: auto;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+}
+
+.modal-header {
+  border-bottom: 1px solid var(--border-color) !important;
+  background-color: var(--bg-surface) !important;
+}
+
+.modal-title {
+  color: var(--text-primary) !important;
+}
+
+.btn-close {
+  filter: invert(1) brightness(0.7);
+}
+
+/* Bootstrap card overrides */
+.card {
+  background-color: var(--bg-surface) !important;
+  border-color: var(--border-color) !important;
+  color: var(--text-primary) !important;
+}
+
+.card-title {
+  color: var(--text-primary) !important;
+}
+
+.card-subtitle,
+.text-muted {
+  color: var(--text-secondary) !important;
+}
+
+.card-footer {
+  background-color: var(--bg-surface) !important;
+  border-top-color: var(--border-color) !important;
+}
+
+.card-link {
+  color: var(--accent) !important;
+}
+
+.card-link:hover {
+  color: var(--accent-hover) !important;
+}
+
+/* Bootstrap button overrides */
+.btn-primary {
+  background-color: var(--accent) !important;
+  border-color: var(--accent) !important;
+  color: #0f172a !important;
+  font-weight: 500;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: var(--accent-hover) !important;
+  border-color: var(--accent-hover) !important;
+  color: #0f172a !important;
+}
+
+.btn-outline-primary {
+  color: var(--accent) !important;
+  border-color: var(--accent) !important;
+  background-color: transparent !important;
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--accent-dim) !important;
+  color: var(--accent) !important;
+}
+
+.btn-outline-secondary {
+  color: var(--text-secondary) !important;
+  border-color: var(--border-color) !important;
+  background-color: transparent !important;
+}
+
+.btn-outline-secondary:hover {
+  background-color: var(--bg-surface-2) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-color) !important;
+}
+
+/* Bootstrap form overrides */
+.form-control {
+  background-color: var(--bg-surface-2) !important;
+  border-color: var(--border-color) !important;
+  color: var(--text-primary) !important;
+}
+
+.form-control:focus {
+  background-color: var(--bg-surface-2) !important;
+  border-color: var(--accent) !important;
+  color: var(--text-primary) !important;
+  box-shadow: 0 0 0 0.2rem rgba(56, 189, 248, 0.2) !important;
+}
+
+.form-label {
+  color: var(--text-secondary) !important;
+}
+
+.form-check-input {
+  background-color: var(--bg-surface-2) !important;
+  border-color: var(--border-color) !important;
+}
+
+.form-check-input:checked {
+  background-color: var(--accent) !important;
+  border-color: var(--accent) !important;
+}
+
+.form-check-label {
+  color: var(--text-secondary) !important;
+}
+
+/* Bootstrap list-group overrides */
+.list-group-item {
+  background-color: var(--bg-surface) !important;
+  border-color: var(--border-color) !important;
+  color: var(--text-primary) !important;
+}
+
+.list-group-item-action:hover,
+.list-group-item-action:focus {
+  background-color: var(--bg-surface-2) !important;
+  color: var(--accent) !important;
+}
+
+/* Bootstrap utilities */
+.border {
+  border-color: var(--border-color) !important;
+}
+
+.shadow,
+.shadow-sm {
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4) !important;
+}
+
+.text-muted,
+.text-secondary {
+  color: var(--text-secondary) !important;
+}
+
+.text-dark {
+  color: var(--text-primary) !important;
+}
+
+.img-thumbnail {
+  background-color: transparent !important;
+  border: none !important;
 }
