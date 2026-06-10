@@ -1,10 +1,11 @@
-import { Component, Inject, OnInit } from '@angular/core';
+﻿import { Component, Inject, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Project } from '../_models/Project';
 import { ProjectService } from '../_services/project.service';
 import { Tag } from '../_models/Tag';
 
 @Component({
+  standalone: false,
   selector: 'app-portfolio',
   templateUrl: './portfolio.component.html',
   styleUrl: './portfolio.component.css'

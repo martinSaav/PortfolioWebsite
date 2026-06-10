@@ -1,9 +1,10 @@
-import { Component, Inject, Input } from '@angular/core';
+﻿import { Component, Inject, Input } from '@angular/core';
 import { Project } from '../_models/Project';
 import { BsModalRef, BsModalService, ModalOptions } from 'ngx-bootstrap/modal';
 import { ProjectModalComponent } from '../project-modal/project-modal.component';
 
 @Component({
+  standalone: false,
   selector: 'app-project-card',
   templateUrl: './project-card.component.html',
   styleUrl: './project-card.component.css'

@@ -1,6 +1,7 @@
-import { AfterViewInit, Component, ElementRef } from '@angular/core';
+﻿import { AfterViewInit, Component, ElementRef } from '@angular/core';
 
 @Component({
+  standalone: false,
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+﻿import { Component } from '@angular/core';
 import emailjs from '@emailjs/browser';
 import { EmailJSResponseStatus } from '@emailjs/browser';
 
 
 @Component({
+  standalone: false,
   selector: 'app-contact-form',
   templateUrl: './contact-form.component.html',
   styleUrl: './contact-form.component.css'
