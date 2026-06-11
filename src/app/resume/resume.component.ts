@@ -1,7 +1,8 @@
-import { Component, Inject, Renderer2 } from '@angular/core';
+﻿import { Component, Inject, Renderer2 } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
 @Component({
+  standalone: false,
   selector: 'app-resume',
   templateUrl: './resume.component.html',
   styleUrl: './resume.component.css'

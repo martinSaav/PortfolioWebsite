@@ -106,9 +106,16 @@
           }
         },
         "deploy": {
-          "builder": "angular-cli-ghpages:deploy"
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {
+            "baseHref": "/PortfolioWebsite/",
+            "repo": "https://github.com/martinSaav/PortfolioWebsite.git"
+          }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }

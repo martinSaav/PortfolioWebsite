@@ -1,30 +1,46 @@
 <div class="row">
-    <div class="col-lg shadow border m-1">
-        <div class="text-center">
-            <h2 class="mt-2">Acerca de mí</h2>
-            <img src="./assets/imgs/foto_martin_estrada.jpeg" alt="foto de Martin Estrada" width="300" height="385" class="rounded mb-4">
-            <p class="text-start m-3"> Me llamo Martín Alejandro Estrada Saavedra, tengo 23 años y soy de la Ciudad de autónoma de Buenos Aires, Argentina. 
-                Soy estudiante de la carrera de Ingeniería en Informática en la Facultad de Ingeniería de la Universidad de Buenos Aires.
-                Me apasiona la programación, el desarrollo de software, me encanta aprender cosas nuevas y ayudar a los demas. <br>
-                Actualmente, estoy cursando el tercer año de Ingeniería en Informática en la FIUBA, donde ya he adquirido conocimientos en áreas como técnicas de diseño de algoritmos, Programación Orientada a Objetos, patrones de diseño, principios SOLID, pruebas unitarias, pruebas funcionales, Ingeniería de requisitos, historias de dominio y de usuario, entre otros. Además, he trabajado en equipo a través de diversos trabajos prácticos. <br>
-                Completé dos capacitaciones clave para mi desarrollo profesional. La primera fue una formación en Spring Boot con microservicios, que no solo me permitió adquirir conocimientos técnicos avanzados, sino que también me ayudó a mejorar mi capacidad de aprendizaje autodidacta.
-                La segunda fue en EMPUJAR donde mis habilidades blandas mejoraron mucho y también me dieron una capacitación para QA Tester Manual en la UTN. <br>
-                En este momento, estoy enfocado en aprender más sobre la nube, en particular AWS, y en profundizar mis conocimientos en networking.
-            </p>
-        </div>
+  <div class="col-lg m-1 dark-card">
+    <div class="text-center">
+      <h2 class="mt-2">Acerca de mí</h2>
+      <img src="./assets/imgs/foto_martin_estrada.jpeg" alt="foto de Martin Estrada" width="280" height="360" class="rounded mb-4">
     </div>
-    <!---->
-    <div class="col-lg shadow border m-1">
-        <div class="text-center">
-            <h2 class="mt-2">Proyecto Destacado</h2>
-            <h4>{{featuredProject.name}}</h4>
+    <p class="bio-intro">
+      Desarrollador FullStack de Buenos Aires, Argentina. Estudiante de Ingeniería en Informática en la FIUBA (4er año).
+      Apasionado por el desarrollo de software, el aprendizaje autodidacta y el trabajo en equipo.
+    </p>
+    <div class="skills-container">
+      <div class="skill-group">
+        <span class="skill-group-label">tecnologías</span>
+        <div class="skill-chips">
+          <span class="skill-chip">Angular</span>
+          <span class="skill-chip">TypeScript</span>
+          <span class="skill-chip">Java</span>
+          <span class="skill-chip">Spring Boot</span>
+          <span class="skill-chip">Python</span>
+          <span class="skill-chip">MySQL</span>
+          <span class="skill-chip">HTML / CSS</span>
         </div>
-        <carousel>
-            <slide *ngFor="let image of featuredProject.images">
-                <img [src]="image" alt="project image" style="display: block; width: 100%;">
-            </slide>
-        </carousel>
-        <p class="mt-2">{{featuredProject.summary}}</p>
+      </div>
+      <div class="skill-group">
+        <span class="skill-group-label">conocimientos</span>
+        <div class="skill-chips">
+          <span class="skill-chip">POO</span>
+          <span class="skill-chip">Patrones de diseño</span>
+          <span class="skill-chip">SOLID</span>
+          <span class="skill-chip">QA Testing</span>
+          <span class="skill-chip">Microservicios</span>
+          <span class="skill-chip">AWS Cloud</span>
+          <span class="skill-chip">Networking</span>
+        </div>
+      </div>
     </div>
+  </div>
+  <div class="col-lg m-1 dark-card">
+    <div class="text-center">
+      <h2 class="mt-2">Proyecto Destacado</h2>
+      <h4>{{featuredProject.name}}</h4>
+    </div>
+    <app-carousel [images]="featuredProject.images"></app-carousel>
+    <p class="mt-2">{{featuredProject.summary}}</p>
+  </div>
 </div>
-

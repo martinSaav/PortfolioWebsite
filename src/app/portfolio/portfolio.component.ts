@@ -1,13 +1,22 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { trigger, state, style, animate, transition } from '@angular/animations';
 import { Project } from '../_models/Project';
 import { ProjectService } from '../_services/project.service';
 import { Tag } from '../_models/Tag';
 
 @Component({
+  standalone: false,
   selector: 'app-portfolio',
   templateUrl: './portfolio.component.html',
-  styleUrl: './portfolio.component.css'
+  styleUrl: './portfolio.component.css',
+  animations: [
+    trigger('expandCollapse', [
+      state('collapsed', style({ height: '0px', overflow: 'hidden', opacity: 0 })),
+      state('expanded', style({ height: '*', overflow: 'visible', opacity: 1 })),
+      transition('collapsed <=> expanded', animate('300ms ease-in-out'))
+    ])
+  ]
 })
 export class PortfolioComponent implements OnInit {
 
@@ -22,7 +31,7 @@ export class PortfolioComponent implements OnInit {
   constructor(@Inject(Title) private titleService: Title, @Inject(ProjectService) private projectService: ProjectService) {
     this.titleService.setTitle('Martin Estrada - Portfolio');
   }
-  
+
   ngOnInit(): void {
     this.projects = this.projectService.getProjects();
   }

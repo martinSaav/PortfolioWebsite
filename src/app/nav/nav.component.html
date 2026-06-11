@@ -1,19 +1,21 @@
-<nav class="navbar-expand-md border-bottom mb-3">
-    <div class="container">
-        <ul class="nav justify-content-center">
-            <li class="nav-item">
-                <a href="" class="nav-link text-secondary" routerLink="" fragment="home"  routerLinkActive="text-dark">Inicio</a>
-            </li>
-            <li class="nav-item">
-                <a href="" class="nav-link text-secondary" routerLink="" fragment="portfolio" routerLinkActive="text-dark">Portfolio</a>
-            </li>
-            <li class="nav-item">
-                <a href="" class="nav-link text-secondary" routerLink="" fragment="resume"  routerLinkActive="text-dark">CV</a>
-            </li>
-            <li class="nav-item">
-                <a href="" class="nav-link text-secondary" routerLink="" fragment="contact"  routerLinkActive="text-dark">Contacto</a>
-            </li>
-        </ul>
-    </div>
-
+<div class="scroll-progress-bar">
+  <div class="scroll-progress-fill" [style.width.%]="scrollProgress"></div>
+</div>
+<nav class="navbar-expand-md">
+  <div class="container">
+    <ul class="nav justify-content-center">
+      <li class="nav-item">
+        <a class="nav-link" [class.active]="activeSection === 'home'" routerLink="" fragment="home" (click)="setActive('home')">Inicio</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [class.active]="activeSection === 'portfolio'" routerLink="" fragment="portfolio" (click)="setActive('portfolio')">Portfolio</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [class.active]="activeSection === 'resume'" routerLink="" fragment="resume" (click)="setActive('resume')">CV</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [class.active]="activeSection === 'contact'" routerLink="" fragment="contact" (click)="setActive('contact')">Contacto</a>
+      </li>
+    </ul>
+  </div>
 </nav>

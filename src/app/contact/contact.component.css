@@ -1,0 +1,104 @@
+.contact-header {
+  padding: 1.5rem 0 1.75rem;
+}
+
+.contact-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 500;
+  color: #94a3b8;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.contact-eyebrow::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #38bdf8;
+  flex-shrink: 0;
+}
+
+.contact-heading {
+  font-size: 2rem;
+  font-weight: 500;
+  color: #f1f5f9;
+  margin: 0 0 8px;
+}
+
+.contact-sub {
+  font-size: 0.95rem;
+  color: #64748b;
+  margin: 0;
+}
+
+.contact-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  padding-bottom: 1rem;
+}
+
+.contact-card {
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  padding: 18px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-decoration: none;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.contact-card:hover {
+  border-color: #38bdf8;
+  transform: translateY(-2px);
+  text-decoration: none;
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.1), 0 0 1px rgba(56, 189, 248, 0.3);
+}
+
+.card-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4px;
+}
+
+.icon-linkedin { background: #1e3a5f; }
+.icon-github   { background: #161b22; border: 1px solid #334155; }
+.icon-email    { background: #0c2340; }
+
+.card-platform {
+  font-size: 14px;
+  font-weight: 500;
+  color: #f1f5f9;
+  margin: 0;
+}
+
+.card-handle {
+  font-size: 11px;
+  color: #64748b;
+  font-family: 'Courier New', monospace;
+  margin: 0;
+  word-break: break-all;
+}
+
+.card-cta {
+  font-size: 12px;
+  color: #38bdf8;
+  margin: 4px 0 0;
+}
+
+@media (max-width: 576px) {
+  .contact-cards {
+    grid-template-columns: 1fr;
+  }
+}

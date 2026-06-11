@@ -1,6 +1,8 @@
-import { AfterViewInit, Component, ElementRef } from '@angular/core';
+﻿import { AfterViewInit, Component, ElementRef, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
+  standalone: false,
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
@@ -9,11 +11,12 @@ export class AppComponent implements AfterViewInit {
 
   title = 'PortfolioWebsite';
 
-  constructor(private el: ElementRef) {}
-
+  constructor(private readonly el: ElementRef, @Inject(PLATFORM_ID) private readonly platformId: object) {}
 
   ngAfterViewInit(): void {
-     const elements = this.el.nativeElement.querySelectorAll('.animate');
+    if (!isPlatformBrowser(this.platformId)) return;
+
+    const elements = this.el.nativeElement.querySelectorAll('.animate');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -28,5 +31,5 @@ export class AppComponent implements AfterViewInit {
       observer.observe(element);
     });
   }
-  
+
 }
