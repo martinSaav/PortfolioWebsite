@@ -1,16 +1,17 @@
 <div class="container mt-4">
-    <h2 class="mb-4 text-center">Certificaciones</h2>
-    <div *ngFor="let cert of certifications" class="card mb-3">
-      <div class="card-body">
-        <h5 class="card-title">{{ cert.name }}</h5>
-        <img [src]="cert.image" alt="{{ cert.name }}" class="img-thumbnail me-3" [style.width.px]="cert.imageWidth" [style.height.px]="cert.imageHeight">
-
-        <h6 class="card-subtitle mt-2 mb-1 text-muted">{{ cert.issuingOrganization }}</h6>
-        <p class="card-text">
-          <strong>Fecha de experición:</strong> {{ cert.issueDate | date }}<br>
-        </p>
-        <a [href]="cert.credentialUrl" target="_blank" class="card-link">Ver certificado</a>
+  <h2 class="mb-4 text-center">Certificaciones</h2>
+  <div *ngFor="let group of certsByCategory" class="cert-group mb-4">
+    <p class="group-label">// {{ group.category }}</p>
+    <div class="cert-grid">
+      <div *ngFor="let cert of group.certs" class="cert-tile">
+        <img [src]="cert.image" [alt]="cert.name" class="cert-logo">
+        <div class="cert-info">
+          <p class="cert-name">{{ cert.name }}</p>
+          <p class="cert-org">{{ cert.issuingOrganization }}</p>
+          <p class="cert-date">{{ cert.issueDate | date:'MM/yyyy' }}</p>
+          <a [href]="cert.credentialUrl" target="_blank" class="cert-link">Ver certificado →</a>
+        </div>
       </div>
     </div>
   </div>
-  
+</div>
