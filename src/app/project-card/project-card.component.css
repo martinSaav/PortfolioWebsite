@@ -2,6 +2,13 @@
   max-width: 350px;
   min-width: 350px;
   overflow: hidden;
+  border: 1px solid #334155 !important;
+  transition: border-color 0.2s, box-shadow 0.2s !important;
+}
+
+.project-card:hover {
+  border-color: #38bdf8 !important;
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.12), 0 0 1px rgba(56, 189, 248, 0.3) !important;
 }
 
 .card-img-wrapper {

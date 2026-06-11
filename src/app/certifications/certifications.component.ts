@@ -24,6 +24,13 @@ export class CertificationsComponent implements OnInit {
     this.certsByCategory = this.groupByCategory(all);
   }
 
+  getCertDelay(groupIndex: number, certIndex: number): number {
+    const offset = this.certsByCategory
+      .slice(0, groupIndex)
+      .reduce((sum, g) => sum + g.certs.length, 0);
+    return (offset + certIndex) * 55;
+  }
+
   private groupByCategory(certs: Certification[]): CertGroup[] {
     const groups: Record<string, Certification[]> = {
       'AWS': [],

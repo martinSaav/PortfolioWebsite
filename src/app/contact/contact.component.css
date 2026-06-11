@@ -59,6 +59,7 @@
   border-color: #38bdf8;
   transform: translateY(-2px);
   text-decoration: none;
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.1), 0 0 1px rgba(56, 189, 248, 0.3);
 }
 
 .card-icon {
