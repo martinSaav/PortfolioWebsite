@@ -9,12 +9,12 @@ import { isPlatformBrowser } from '@angular/common';
 })
 export class HeaderComponent implements AfterViewInit, OnDestroy {
   displayedRole = '';
-  private readonly fullRole = 'Desarrollador FullStack';
+  private readonly fullRole = 'Software Developer';
   private typingTimer?: ReturnType<typeof setTimeout>;
 
   constructor(
-    @Inject(PLATFORM_ID) private platformId: object,
-    private cdr: ChangeDetectorRef
+    @Inject(PLATFORM_ID) private readonly platformId: object,
+    private readonly cdr: ChangeDetectorRef
   ) {
     if (!isPlatformBrowser(this.platformId)) {
       this.displayedRole = this.fullRole;
@@ -31,15 +31,26 @@ export class HeaderComponent implements AfterViewInit, OnDestroy {
   }
 
   private startTyping(): void {
-    let i = 0;
-    const type = () => {
+    const typeForward = (i: number) => {
       this.displayedRole = this.fullRole.slice(0, i);
       this.cdr.detectChanges();
-      if (i <= this.fullRole.length) {
-        i++;
-        this.typingTimer = setTimeout(type, 75);
+      if (i < this.fullRole.length) {
+        this.typingTimer = setTimeout(() => typeForward(i + 1), 75);
+      } else {
+        this.typingTimer = setTimeout(() => eraseBack(this.fullRole.length), 5000);
       }
     };
-    this.typingTimer = setTimeout(type, 400);
+
+    const eraseBack = (i: number) => {
+      this.displayedRole = this.fullRole.slice(0, i);
+      this.cdr.detectChanges();
+      if (i > 0) {
+        this.typingTimer = setTimeout(() => eraseBack(i - 1), 45);
+      } else {
+        this.typingTimer = setTimeout(() => typeForward(0), 500);
+      }
+    };
+
+    this.typingTimer = setTimeout(() => typeForward(0), 400);
   }
 }
