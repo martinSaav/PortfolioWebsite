@@ -19,11 +19,24 @@
 }
 
 .skill-group-label {
-  display: block;
-  font-family: 'Courier New', monospace;
-  font-size: 12px;
-  color: #38bdf8;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 500;
+  color: #94a3b8;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   margin-bottom: 8px;
+}
+
+.skill-group-label::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #38bdf8;
+  flex-shrink: 0;
 }
 
 .skill-chips {

@@ -5,16 +5,16 @@
   <div class="container">
     <ul class="nav justify-content-center">
       <li class="nav-item">
-        <a class="nav-link" [class.active]="activeSection === 'home'" routerLink="" fragment="home">Inicio</a>
+        <a class="nav-link" [class.active]="activeSection === 'home'" routerLink="" fragment="home" (click)="setActive('home')">Inicio</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" [class.active]="activeSection === 'portfolio'" routerLink="" fragment="portfolio">Portfolio</a>
+        <a class="nav-link" [class.active]="activeSection === 'portfolio'" routerLink="" fragment="portfolio" (click)="setActive('portfolio')">Portfolio</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" [class.active]="activeSection === 'resume'" routerLink="" fragment="resume">CV</a>
+        <a class="nav-link" [class.active]="activeSection === 'resume'" routerLink="" fragment="resume" (click)="setActive('resume')">CV</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" [class.active]="activeSection === 'contact'" routerLink="" fragment="contact">Contacto</a>
+        <a class="nav-link" [class.active]="activeSection === 'contact'" routerLink="" fragment="contact" (click)="setActive('contact')">Contacto</a>
       </li>
     </ul>
   </div>

@@ -1,7 +1,7 @@
 <div class="container mt-4">
   <h2 class="mb-4 text-center">Certificaciones</h2>
   <div *ngFor="let group of certsByCategory" class="cert-group mb-4">
-    <p class="group-label">// {{ group.category }}</p>
+    <p class="group-label">{{ group.category }}</p>
     <div class="cert-grid">
       <div *ngFor="let cert of group.certs" class="cert-tile">
         <img [src]="cert.image" [alt]="cert.name" class="cert-logo">

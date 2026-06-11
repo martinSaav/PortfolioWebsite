@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit, OnDestroy, PLATFORM_ID } from '@angular/core';
+import { Component, HostListener, Inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 
 @Component({
@@ -7,32 +7,27 @@ import { isPlatformBrowser } from '@angular/common';
   templateUrl: './nav.component.html',
   styleUrl: './nav.component.css'
 })
-export class NavComponent implements OnInit, OnDestroy {
+export class NavComponent {
 
   activeSection = 'home';
   scrollProgress = 0;
+  private isBrowser = false;
 
-  private scrollListener?: () => void;
-
-  constructor(@Inject(PLATFORM_ID) private platformId: object) {}
-
-  ngOnInit(): void {
-    if (!isPlatformBrowser(this.platformId)) return;
-
-    this.scrollListener = () => {
-      const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      this.scrollProgress = docHeight > 0 ? Math.round((scrollTop / docHeight) * 100) : 0;
-      this.updateActiveSection();
-    };
-
-    window.addEventListener('scroll', this.scrollListener, { passive: true });
+  constructor(@Inject(PLATFORM_ID) private platformId: object) {
+    this.isBrowser = isPlatformBrowser(platformId);
   }
 
-  ngOnDestroy(): void {
-    if (this.scrollListener) {
-      window.removeEventListener('scroll', this.scrollListener);
-    }
+  @HostListener('window:scroll')
+  onScroll(): void {
+    if (!this.isBrowser) return;
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    this.scrollProgress = docHeight > 0 ? Math.round((scrollTop / docHeight) * 100) : 0;
+    this.updateActiveSection();
+  }
+
+  setActive(section: string): void {
+    this.activeSection = section;
   }
 
   private updateActiveSection(): void {
