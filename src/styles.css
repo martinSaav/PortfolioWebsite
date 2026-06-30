@@ -70,29 +70,13 @@ strong, b, small {
 
 /* Modal */
 .cdk-overlay-backdrop.cdk-overlay-backdrop-showing {
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(2px);
 }
 
-.cdk-overlay-pane .modal-content {
-  border-radius: 0.5rem;
-  max-height: 90vh;
-  overflow-y: auto;
-  background-color: var(--bg-surface);
-  border: 1px solid var(--border-color);
-  color: var(--text-primary);
-}
-
-.modal-header {
-  border-bottom: 1px solid var(--border-color) !important;
-  background-color: var(--bg-surface) !important;
-}
-
-.modal-title {
-  color: var(--text-primary) !important;
-}
-
-.btn-close {
-  filter: invert(1) brightness(0.7);
+.cdk-dialog-container {
+  background: transparent !important;
+  outline: none;
 }
 
 /* Bootstrap card overrides */

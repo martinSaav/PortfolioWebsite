@@ -1,5 +1,7 @@
 import { AfterViewInit, ChangeDetectorRef, Component, Inject, OnDestroy, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
+import { TranslateService } from '@ngx-translate/core';
+import { Subscription } from 'rxjs';
 
 @Component({
   standalone: false,
@@ -9,12 +11,14 @@ import { isPlatformBrowser } from '@angular/common';
 })
 export class HeaderComponent implements AfterViewInit, OnDestroy {
   displayedRole = '';
-  private readonly fullRole = 'Software Developer';
+  private fullRole = 'Desarrollador de Software';
   private typingTimer?: ReturnType<typeof setTimeout>;
+  private langSub?: Subscription;
 
   constructor(
     @Inject(PLATFORM_ID) private readonly platformId: object,
-    private readonly cdr: ChangeDetectorRef
+    private readonly cdr: ChangeDetectorRef,
+    private readonly translate: TranslateService
   ) {
     if (!isPlatformBrowser(this.platformId)) {
       this.displayedRole = this.fullRole;
@@ -23,11 +27,19 @@ export class HeaderComponent implements AfterViewInit, OnDestroy {
 
   ngAfterViewInit(): void {
     if (!isPlatformBrowser(this.platformId)) return;
-    this.startTyping();
+
+    this.langSub = this.translate.stream('HEADER.ROLE').subscribe(role => {
+      this.fullRole = role;
+      if (this.typingTimer) clearTimeout(this.typingTimer);
+      this.displayedRole = '';
+      this.cdr.detectChanges();
+      this.startTyping();
+    });
   }
 
   ngOnDestroy(): void {
     if (this.typingTimer) clearTimeout(this.typingTimer);
+    this.langSub?.unsubscribe();
   }
 
   private startTyping(): void {

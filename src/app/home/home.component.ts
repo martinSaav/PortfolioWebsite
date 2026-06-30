@@ -1,7 +1,7 @@
-﻿import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { ProjectService } from '../_services/project.service';
 import { Project } from '../_models/Project';
+import { PROJECTS } from '../_data/projects.data';
 
 @Component({
   standalone: false,
@@ -13,11 +13,11 @@ export class HomeComponent implements OnInit {
 
   featuredProject: Project = {} as Project;
 
-  constructor(@Inject(Title) private titleService: Title, @Inject(ProjectService) private projectService: ProjectService ) {
+  constructor(@Inject(Title) private titleService: Title) {
     this.titleService.setTitle('Martin Estrada - Home');
   }
 
   ngOnInit(): void {
-    this.featuredProject = this.projectService.getProject(0);
+    this.featuredProject = PROJECTS[0];
   }
 }

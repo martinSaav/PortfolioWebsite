@@ -1,17 +1,17 @@
 <div class="container mt-4">
-  <h2 class="mb-4 text-center">Certificaciones</h2>
+  <h2 class="mb-4 text-center">{{ 'CERT.TITLE' | translate }}</h2>
   <div *ngFor="let group of certsByCategory; let gi = index" class="cert-group mb-4">
-    <p class="group-label">{{ group.category }}</p>
+    <p class="group-label">{{ group.categoryKey | translate }}</p>
     <div class="cert-grid">
       <div *ngFor="let cert of group.certs; let ci = index"
            class="cert-tile"
            [style.animation-delay.ms]="getCertDelay(gi, ci)">
-        <img [src]="cert.image" [alt]="cert.name" class="cert-logo">
+        <img [src]="cert.image" [alt]="cert.nameKey | translate" class="cert-logo">
         <div class="cert-info">
-          <p class="cert-name">{{ cert.name }}</p>
+          <p class="cert-name">{{ cert.nameKey | translate }}</p>
           <p class="cert-org">{{ cert.issuingOrganization }}</p>
           <p class="cert-date">{{ cert.issueDate | date:'MM/yyyy' }}</p>
-          <a [href]="cert.credentialUrl" target="_blank" class="cert-link">Ver certificado →</a>
+          <a [href]="cert.credentialUrl" target="_blank" class="cert-link">{{ 'CERT.VIEW' | translate }}</a>
         </div>
       </div>
     </div>

@@ -1,17 +1,26 @@
-<div class="modal-content">
-  <div class="modal-header">
-    <h2 class="modal-title">{{project.name}}</h2>
-    <button class="btn-close" (click)="closeProjectModal()"></button>
+<div class="pm-wrap">
+  <div class="pm-header">
+    <h2 class="pm-title">{{ project.name }}</h2>
+    <button class="pm-close" (click)="closeProjectModal()">✕</button>
   </div>
-  <div class="modal-body">
-    <app-carousel [images]="project.images"></app-carousel>
-    <h3 class="mt-3">Descripción</h3>
-    <p>{{project.description}}</p>
-    <p>Podes ver este projecto <a [href]="project.projectLink" target="_blank">Acá</a></p>
-    <hr>
-    <div class="d-flex flex-wrap">
-      <div *ngFor="let tag of project.technologies">
-        <div class="tag me-2 mb-1" [style.background-color]="tag.color">{{tag}}</div>
+
+  <div class="pm-body">
+    <div class="pm-carousel">
+      <app-carousel [images]="project.images"></app-carousel>
+    </div>
+
+    <div class="pm-info">
+      <p class="pm-section-label">{{ 'MODAL.DESCRIPTION' | translate }}</p>
+      <p class="pm-description">{{ project.descriptionKey | translate }}</p>
+
+      <a [href]="project.projectLink" target="_blank" class="pm-visit-btn">
+        {{ 'MODAL.VISIT' | translate }} →
+      </a>
+
+      <div class="pm-tags">
+        <span *ngFor="let tag of project.technologies"
+              class="tag"
+              [style.background-color]="tag.color">{{ tag }}</span>
       </div>
     </div>
   </div>

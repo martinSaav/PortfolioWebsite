@@ -2,13 +2,13 @@
   <div class="card-img-wrapper">
     <img *ngIf="project.images.length" [src]="project.images[0]" [alt]="project.name" class="card-preview-img">
     <div *ngIf="!project.images.length" class="card-no-img">
-      <span>// sin preview</span>
+      <span>{{ 'PORTFOLIO.NO_PREVIEW' | translate }}</span>
     </div>
   </div>
   <div class="card-body">
     <h5 class="card-title">{{project.name}}</h5>
-    <p class="card-text">{{project.summary}}</p>
-    <button class="btn btn-primary" (click)="openProjectModal()">Ver proyecto</button>
+    <p class="card-text">{{ project.summaryKey | translate }}</p>
+    <button class="btn btn-primary" (click)="openProjectModal()">{{ 'PORTFOLIO.VIEW' | translate }}</button>
   </div>
   <div class="card-footer">
     <div class="d-flex flex-wrap justify-content-center">

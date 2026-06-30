@@ -1,5 +1,6 @@
 import { Component, HostListener, Inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   standalone: false,
@@ -11,10 +12,20 @@ export class NavComponent {
 
   activeSection = 'home';
   scrollProgress = 0;
+  currentLang = 'es';
   private isBrowser = false;
 
-  constructor(@Inject(PLATFORM_ID) private platformId: object) {
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: object,
+    private readonly translate: TranslateService
+  ) {
     this.isBrowser = isPlatformBrowser(platformId);
+    this.currentLang = translate.currentLang || 'es';
+  }
+
+  setLang(lang: string): void {
+    this.currentLang = lang;
+    this.translate.use(lang);
   }
 
   @HostListener('window:scroll')

@@ -1,9 +1,9 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Certification } from '../_models/Certification';
-import { CertificationService } from '../_services/certification.service';
+import { CERTIFICATIONS } from '../_data/certifications.data';
 
 interface CertGroup {
-  category: string;
+  categoryKey: string;
   certs: Certification[];
 }
 
@@ -15,13 +15,19 @@ interface CertGroup {
 })
 export class CertificationsComponent implements OnInit {
 
+  private readonly categoryOrder = [
+    'CERT.AWS',
+    'CERT.PROGRAMACION',
+    'CERT.TESTING',
+    'CERT.SEGURIDAD',
+    'CERT.DATOS',
+    'CERT.OTROS'
+  ];
+
   certsByCategory: CertGroup[] = [];
 
-  constructor(@Inject(CertificationService) private certificationService: CertificationService) {}
-
   ngOnInit(): void {
-    const all = this.certificationService.getAllcertifications();
-    this.certsByCategory = this.groupByCategory(all);
+    this.certsByCategory = this.groupByCategory(CERTIFICATIONS);
   }
 
   getCertDelay(groupIndex: number, certIndex: number): number {
@@ -32,36 +38,11 @@ export class CertificationsComponent implements OnInit {
   }
 
   private groupByCategory(certs: Certification[]): CertGroup[] {
-    const groups: Record<string, Certification[]> = {
-      'AWS': [],
-      'Programación': [],
-      'Testing': [],
-      'Seguridad': [],
-      'Datos': [],
-      'Otros': []
-    };
-
-    for (const cert of certs) {
-      const org = cert.issuingOrganization.toLowerCase();
-      const name = cert.name.toLowerCase();
-
-      if (org.includes('aws')) {
-        groups['AWS'].push(cert);
-      } else if (name.includes('testing') || name.includes('tester')) {
-        groups['Testing'].push(cert);
-      } else if (name.includes('java') || name.includes('python')) {
-        groups['Programación'].push(cert);
-      } else if (org.includes('security') || org.includes('ekoparty') || name.includes('ciberseguridad')) {
-        groups['Seguridad'].push(cert);
-      } else if (name.includes('datos')) {
-        groups['Datos'].push(cert);
-      } else {
-        groups['Otros'].push(cert);
-      }
-    }
-
-    return Object.entries(groups)
-      .filter(([, c]) => c.length > 0)
-      .map(([category, c]) => ({ category, certs: c }));
+    return this.categoryOrder
+      .map(categoryKey => ({
+        categoryKey,
+        certs: certs.filter(cert => cert.category === categoryKey)
+      }))
+      .filter(group => group.certs.length > 0);
   }
 }

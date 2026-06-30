@@ -38,12 +38,7 @@
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
-            "scripts": [],
-            "server": "src/main.server.ts",
-            "prerender": true,
-            "ssr": {
-              "entry": "server.ts"
-            }
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -109,7 +104,8 @@
           "builder": "angular-cli-ghpages:deploy",
           "options": {
             "baseHref": "/PortfolioWebsite/",
-            "repo": "https://github.com/martinSaav/PortfolioWebsite.git"
+            "repo": "https://github.com/martinSaav/PortfolioWebsite.git",
+            "dir": "dist/portfolio-website/browser"
           }
         }
       }

@@ -1,0 +1,106 @@
+.pm-wrap {
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  max-height: 90vh;
+}
+
+.pm-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.1rem 1.4rem 1rem;
+  border-bottom: 1px solid #334155;
+  background: #1e293b;
+  flex-shrink: 0;
+}
+
+.pm-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #f1f5f9;
+  margin: 0;
+  letter-spacing: 0.01em;
+}
+
+.pm-close {
+  background: none;
+  border: none;
+  color: #64748b;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  transition: color 0.15s, background 0.15s;
+  line-height: 1;
+}
+
+.pm-close:hover {
+  color: #f1f5f9;
+  background: #334155;
+}
+
+.pm-body {
+  overflow-y: auto;
+  flex: 1;
+}
+
+.pm-carousel {
+  padding: 1.2rem 1.4rem 0;
+}
+
+.pm-info {
+  padding: 1.2rem 1.4rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.pm-section-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #38bdf8;
+  margin: 0;
+}
+
+.pm-description {
+  font-size: 0.92rem;
+  color: #94a3b8;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.pm-visit-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.45rem 1rem;
+  background: #0c4a6e;
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  border-radius: 6px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s, border-color 0.2s;
+  align-self: flex-start;
+}
+
+.pm-visit-btn:hover {
+  background: #0e5f8a;
+  border-color: #38bdf8;
+  color: #7dd3fc;
+}
+
+.pm-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding-top: 0.25rem;
+  border-top: 1px solid #334155;
+}

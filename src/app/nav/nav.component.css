@@ -14,6 +14,17 @@ nav {
   border-bottom: 1px solid #334155;
 }
 
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-links {
+  flex: 1;
+  justify-content: center;
+}
+
 .nav-link {
   color: #64748b;
   font-size: 0.875rem;
@@ -40,4 +51,39 @@ nav {
   height: 2px;
   background: #38bdf8;
   border-radius: 1px 1px 0 0;
+}
+
+.lang-toggle {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  flex-shrink: 0;
+}
+
+.lang-btn {
+  background: none;
+  border: none;
+  color: #64748b;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  padding: 0.25rem 0.35rem;
+  cursor: pointer;
+  transition: color 0.2s;
+  line-height: 1;
+}
+
+.lang-btn:hover {
+  color: #94a3b8;
+}
+
+.lang-btn.active {
+  color: #38bdf8;
+}
+
+.lang-sep {
+  color: #334155;
+  font-size: 0.75rem;
+  line-height: 1;
+  user-select: none;
 }
