@@ -2,20 +2,25 @@
   <div class="scroll-progress-fill" [style.width.%]="scrollProgress"></div>
 </div>
 <nav class="navbar-expand-md">
-  <div class="container">
-    <ul class="nav justify-content-center">
+  <div class="container nav-container">
+    <ul class="nav nav-links">
       <li class="nav-item">
-        <a class="nav-link" [class.active]="activeSection === 'home'" routerLink="" fragment="home" (click)="setActive('home')">Inicio</a>
+        <a class="nav-link" [class.active]="activeSection === 'home'" routerLink="" fragment="home" (click)="setActive('home')">{{ 'NAV.HOME' | translate }}</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" [class.active]="activeSection === 'portfolio'" routerLink="" fragment="portfolio" (click)="setActive('portfolio')">Portfolio</a>
+        <a class="nav-link" [class.active]="activeSection === 'portfolio'" routerLink="" fragment="portfolio" (click)="setActive('portfolio')">{{ 'NAV.PORTFOLIO' | translate }}</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" [class.active]="activeSection === 'resume'" routerLink="" fragment="resume" (click)="setActive('resume')">CV</a>
+        <a class="nav-link" [class.active]="activeSection === 'resume'" routerLink="" fragment="resume" (click)="setActive('resume')">{{ 'NAV.RESUME' | translate }}</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" [class.active]="activeSection === 'contact'" routerLink="" fragment="contact" (click)="setActive('contact')">Contacto</a>
+        <a class="nav-link" [class.active]="activeSection === 'contact'" routerLink="" fragment="contact" (click)="setActive('contact')">{{ 'NAV.CONTACT' | translate }}</a>
       </li>
     </ul>
+    <div class="lang-toggle">
+      <button class="lang-btn" [class.active]="currentLang === 'es'" (click)="setLang('es')">ES</button>
+      <span class="lang-sep">|</span>
+      <button class="lang-btn" [class.active]="currentLang === 'en'" (click)="setLang('en')">EN</button>
+    </div>
   </div>
 </nav>

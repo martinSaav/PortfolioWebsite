@@ -1,5 +1,6 @@
 ﻿import { AfterViewInit, Component, ElementRef, Inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   standalone: false,
@@ -11,7 +12,14 @@ export class AppComponent implements AfterViewInit {
 
   title = 'PortfolioWebsite';
 
-  constructor(private readonly el: ElementRef, @Inject(PLATFORM_ID) private readonly platformId: object) {}
+  constructor(
+    private readonly el: ElementRef,
+    @Inject(PLATFORM_ID) private readonly platformId: object,
+    private readonly translate: TranslateService
+  ) {
+    translate.setDefaultLang('es');
+    translate.use('es');
+  }
 
   ngAfterViewInit(): void {
     if (!isPlatformBrowser(this.platformId)) return;

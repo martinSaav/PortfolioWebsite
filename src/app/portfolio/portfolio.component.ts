@@ -2,8 +2,8 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 import { Project } from '../_models/Project';
-import { ProjectService } from '../_services/project.service';
 import { Tag } from '../_models/Tag';
+import { PROJECTS } from '../_data/projects.data';
 
 @Component({
   standalone: false,
@@ -20,7 +20,7 @@ import { Tag } from '../_models/Tag';
 })
 export class PortfolioComponent implements OnInit {
 
-  projects: Project[] = {} as Project[];
+  projects: Project[] = [];
 
   isCollapsed: boolean = true;
   javaScript: boolean = false;
@@ -28,12 +28,12 @@ export class PortfolioComponent implements OnInit {
   angular: boolean = false;
   filtering: boolean = false;
 
-  constructor(@Inject(Title) private titleService: Title, @Inject(ProjectService) private projectService: ProjectService) {
+  constructor(@Inject(Title) private titleService: Title) {
     this.titleService.setTitle('Martin Estrada - Portfolio');
   }
 
   ngOnInit(): void {
-    this.projects = this.projectService.getProjects();
+    this.projects = PROJECTS;
   }
 
   toggleCollapse(): void {
@@ -41,34 +41,32 @@ export class PortfolioComponent implements OnInit {
   }
 
   filterProjects(): void {
-    let filtertags: Tag[] = [];
+    const filterTags: Tag[] = [];
 
     if (this.javaScript) {
-      filtertags.push(Tag.JAVASCRIPT);
+      filterTags.push(Tag.JAVASCRIPT);
     }
 
     if (this.typeScript) {
-      filtertags.push(Tag.TYPESCRIPT);
+      filterTags.push(Tag.TYPESCRIPT);
     }
 
     if (this.angular) {
-      filtertags.push(Tag.ANGULAR);
+      filterTags.push(Tag.ANGULAR);
     }
 
-    if (this.typeScript || this.angular || this.javaScript) {
-      this.filtering = true;
-    } else {
-      this.filtering = false;
-    }
+    this.filtering = filterTags.length > 0;
 
-    this.projects = this.projectService.getProjectsByFilter(filtertags);
+    this.projects = PROJECTS.filter(
+      project => filterTags.every(tag => project.technologies.includes(tag))
+    );
   }
 
   clearFilter(): void {
     this.typeScript = false;
     this.angular = false;
     this.javaScript = false;
-    this.projects = this.projectService.getProjects();
+    this.projects = PROJECTS;
     this.filtering = false;
   }
 }

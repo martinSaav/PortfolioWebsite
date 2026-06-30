@@ -1,16 +1,13 @@
 <div class="row">
   <div class="col-lg m-1 dark-card">
     <div class="text-center">
-      <h2 class="mt-2">Acerca de mí</h2>
+      <h2 class="mt-2">{{ 'HOME.ABOUT' | translate }}</h2>
       <img src="./assets/imgs/foto_martin_estrada.jpeg" alt="foto de Martin Estrada" width="280" height="360" class="rounded mb-4">
     </div>
-    <p class="bio-intro">
-      Desarrollador FullStack de Buenos Aires, Argentina. Estudiante de Ingeniería en Informática en la FIUBA (4er año).
-      Apasionado por el desarrollo de software, el aprendizaje autodidacta y el trabajo en equipo.
-    </p>
+    <p class="bio-intro">{{ 'HOME.BIO' | translate }}</p>
     <div class="skills-container">
       <div class="skill-group">
-        <span class="skill-group-label">tecnologías</span>
+        <span class="skill-group-label">{{ 'HOME.SKILLS.TECH' | translate }}</span>
         <div class="skill-chips">
           <span class="skill-chip">Angular</span>
           <span class="skill-chip">TypeScript</span>
@@ -22,7 +19,7 @@
         </div>
       </div>
       <div class="skill-group">
-        <span class="skill-group-label">conocimientos</span>
+        <span class="skill-group-label">{{ 'HOME.SKILLS.KNOWLEDGE' | translate }}</span>
         <div class="skill-chips">
           <span class="skill-chip">POO</span>
           <span class="skill-chip">Patrones de diseño</span>
@@ -37,10 +34,10 @@
   </div>
   <div class="col-lg m-1 dark-card">
     <div class="text-center">
-      <h2 class="mt-2">Proyecto Destacado</h2>
+      <h2 class="mt-2">{{ 'HOME.FEATURED' | translate }}</h2>
       <h4>{{featuredProject.name}}</h4>
     </div>
     <app-carousel [images]="featuredProject.images"></app-carousel>
-    <p class="mt-2">{{featuredProject.summary}}</p>
+    <p class="mt-2">{{ featuredProject.summaryKey | translate }}</p>
   </div>
 </div>
