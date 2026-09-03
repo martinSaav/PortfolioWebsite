@@ -2,7 +2,27 @@
   background-color: #1e293b;
   border: 1px solid #334155;
   border-radius: 0.5rem;
-  padding: 1rem 1.25rem;
+  padding: 1.25rem 1.4rem;
+}
+
+.card-heading {
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: #f1f5f9;
+  margin: 0 0 12px;
+}
+
+.featured-name {
+  font-size: 0.95rem;
+  color: #38bdf8;
+  margin: 0 0 12px;
+}
+
+.featured-summary {
+  font-size: 0.88rem;
+  color: #94a3b8;
+  line-height: 1.65;
+  margin: 14px 0 0;
 }
 
 .bio-intro {

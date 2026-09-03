@@ -1,5 +1,5 @@
-<div class="container mt-4">
-  <h2 class="mb-4 text-center">{{ 'CERT.TITLE' | translate }}</h2>
+<div class="container">
+  <app-section-header eyebrowKey="CERT.EYEBROW" headingKey="CERT.TITLE" subKey="CERT.DESC"></app-section-header>
 
   <div *ngFor="let group of certsByCategory" class="cert-group mb-4">
     <div class="cert-group-head" (click)="toggleGroup(group)">
@@ -23,17 +23,21 @@
 
     <div [@expandCollapse]="group.expanded ? 'expanded' : 'collapsed'">
       <div class="cert-grid">
-        <div *ngFor="let cert of group.certs; let ci = index"
-             class="cert-tile"
-             [style.animation-delay.ms]="getCertDelay(ci)">
+        <!-- El tile entero es el link, asi no hace falta una linea aparte de
+             "Ver certificado" repetida en cada tarjeta. -->
+        <a *ngFor="let cert of group.certs; let ci = index"
+           class="cert-tile"
+           [style.animation-delay.ms]="getCertDelay(ci)"
+           [href]="cert.credentialUrl || null"
+           [attr.target]="cert.credentialUrl ? '_blank' : null"
+           rel="noopener">
           <img [src]="cert.image" [alt]="cert.nameKey | translate" class="cert-logo">
           <div class="cert-info">
             <p class="cert-name">{{ cert.nameKey | translate }}</p>
-            <p class="cert-org">{{ cert.issuingOrganization }}</p>
-            <p class="cert-date">{{ cert.issueDate | date:'MM/yyyy' }}</p>
-            <a [href]="cert.credentialUrl" target="_blank" rel="noopener" class="cert-link">{{ 'CERT.VIEW' | translate }}</a>
+            <p class="cert-meta">{{ cert.issuingOrganization }} · {{ cert.issueDate | date:'MM/yyyy' }}</p>
           </div>
-        </div>
+          <span *ngIf="cert.credentialUrl" class="cert-arrow">→</span>
+        </a>
       </div>
     </div>
   </div>

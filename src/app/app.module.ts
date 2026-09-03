@@ -23,6 +23,7 @@ import { CertificationsComponent } from './certifications/certifications.compone
 import { ExperienceComponent } from './experience/experience.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { CarouselComponent } from './carousel/carousel.component';
+import { SectionHeaderComponent } from './section-header/section-header.component';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
@@ -51,6 +52,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ExperienceComponent,
     ContactFormComponent,
     CarouselComponent,
+    SectionHeaderComponent,
   ],
   imports: [
     BrowserModule,

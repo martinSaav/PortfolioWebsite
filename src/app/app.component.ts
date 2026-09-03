@@ -25,13 +25,13 @@ export class AppComponent implements AfterViewInit {
     if (!isPlatformBrowser(this.platformId)) return;
 
     const elements = this.el.nativeElement.querySelectorAll('.animate');
+    // La entrada se anima una sola vez: se deja de observar la seccion apenas
+    // aparece, para que no vuelva a hacer fade cada vez que se pasa por encima.
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in-view');
-        } else {
-          entry.target.classList.remove('in-view');
-        }
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('in-view');
+        observer.unobserve(entry.target);
       });
     });
 

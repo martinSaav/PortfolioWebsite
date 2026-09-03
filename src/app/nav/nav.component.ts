@@ -2,6 +2,11 @@ import { Component, HostListener, Inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { TranslateService } from '@ngx-translate/core';
 
+interface NavSection {
+  id: string;
+  labelKey: string;
+}
+
 @Component({
   standalone: false,
   selector: 'app-nav',
@@ -9,6 +14,15 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrl: './nav.component.css'
 })
 export class NavComponent {
+
+  /** Secciones del nav, en el mismo orden en que aparecen en la pagina. */
+  readonly sections: NavSection[] = [
+    { id: 'home', labelKey: 'NAV.HOME' },
+    { id: 'experience', labelKey: 'NAV.EXPERIENCE' },
+    { id: 'portfolio', labelKey: 'NAV.PORTFOLIO' },
+    { id: 'resume', labelKey: 'NAV.RESUME' },
+    { id: 'contact', labelKey: 'NAV.CONTACT' }
+  ];
 
   activeSection = 'home';
   scrollProgress = 0;
@@ -28,6 +42,23 @@ export class NavComponent {
     this.translate.use(lang);
   }
 
+  /**
+   * Lleva a la seccion sin pasar por el router: `scrollIntoView` respeta el
+   * `scroll-margin-top`, asi el destino queda justo debajo de la barra sticky.
+   * El hash se actualiza a mano para que la URL siga siendo compartible.
+   */
+  goTo(section: string, event: Event): void {
+    this.activeSection = section;
+    if (!this.isBrowser) return;
+
+    const target = document.getElementById(section);
+    if (!target) return;
+
+    event.preventDefault();
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    history.replaceState(null, '', `#${section}`);
+  }
+
   @HostListener('window:scroll')
   onScroll(): void {
     if (!this.isBrowser) return;
@@ -37,18 +68,21 @@ export class NavComponent {
     this.updateActiveSection();
   }
 
-  setActive(section: string): void {
-    this.activeSection = section;
-  }
-
   private updateActiveSection(): void {
-    const sections = ['home', 'experience', 'portfolio', 'resume', 'contact'];
+    // Al final de la pagina la ultima seccion nunca llega a cruzar el umbral,
+    // porque ya no queda scroll: ahi se la marca activa directamente.
+    const atBottom = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 2;
+    if (atBottom) {
+      this.activeSection = this.sections[this.sections.length - 1].id;
+      return;
+    }
+
     const trigger = window.innerHeight * 0.45;
-    let current = 'home';
-    for (const id of sections) {
-      const el = document.getElementById(id);
+    let current = this.sections[0].id;
+    for (const section of this.sections) {
+      const el = document.getElementById(section.id);
       if (el && el.getBoundingClientRect().top <= trigger) {
-        current = id;
+        current = section.id;
       }
     }
     this.activeSection = current;

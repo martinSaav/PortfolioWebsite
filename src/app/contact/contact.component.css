@@ -32,7 +32,7 @@
 
 .contact-sub {
   font-size: 0.95rem;
-  color: #64748b;
+  color: #94a3b8;
   margin: 0;
 }
 
@@ -72,9 +72,9 @@
   margin-bottom: 4px;
 }
 
-.icon-linkedin { background: #1e3a5f; }
-.icon-github   { background: #161b22; border: 1px solid #334155; }
-.icon-email    { background: #0c2340; }
+.icon-linkedin { background: #1e3a5f; color: #7cc0ff; }
+.icon-github   { background: #161b22; border: 1px solid #334155; color: #e6edf3; }
+.icon-email    { background: #0c2340; color: #7dd3fc; }
 
 .card-platform {
   font-size: 14px;
@@ -85,7 +85,7 @@
 
 .card-handle {
   font-size: 11px;
-  color: #64748b;
+  color: #94a3b8;
   font-family: 'Courier New', monospace;
   margin: 0;
   word-break: break-all;

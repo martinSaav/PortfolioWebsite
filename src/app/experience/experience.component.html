@@ -1,6 +1,5 @@
-<div class="container mt-4 mb-4">
-  <h1 class="text-center">{{ 'EXP.TITLE' | translate }}</h1>
-  <p class="text-center">{{ 'EXP.DESC' | translate }}</p>
+<div class="container mb-4">
+  <app-section-header eyebrowKey="EXP.EYEBROW" headingKey="EXP.TITLE" subKey="EXP.DESC"></app-section-header>
 
   <div class="timeline">
     <div *ngFor="let item of items; let i = index"

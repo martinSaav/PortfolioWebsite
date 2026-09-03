@@ -49,16 +49,13 @@ export class HeroComponent implements AfterViewInit, OnDestroy {
     this.langSub?.unsubscribe();
   }
 
-  /**
-   * El salto por hash aterriza corrido porque el layout todavía se acomoda
-   * después del scroll; `scrollIntoView` sobre el elemento respeta el
-   * `scroll-margin-top` y lo deja justo debajo de la barra.
-   */
+  /** Mismo criterio que el nav: el scroll lo resuelve `scrollIntoView`. */
   goToPortfolio(event: Event): void {
     const target = document.getElementById('portfolio');
     if (!target) return;
     event.preventDefault();
     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    history.replaceState(null, '', '#portfolio');
   }
 
   /** Descarga el CV del idioma activo, con el español como respaldo. */
