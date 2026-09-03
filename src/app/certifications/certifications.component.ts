@@ -10,10 +10,10 @@ interface CertGroup {
 }
 
 /**
- * A partir de esta cantidad de credenciales, la categoría arranca colapsada en
- * una sola fila de logos. Debajo del umbral no vale la pena esconderla.
+ * Categorías que arrancan desplegadas. Las demás muestran sólo la fila de
+ * logos hasta que se las abre con el botón +.
  */
-const COLLAPSE_FROM = 4;
+const EXPANDED_BY_DEFAULT = ['CERT.AWS'];
 
 @Component({
   standalone: false,
@@ -61,7 +61,7 @@ export class CertificationsComponent implements OnInit {
         return {
           categoryKey,
           certs: groupCerts,
-          expanded: groupCerts.length < COLLAPSE_FROM
+          expanded: EXPANDED_BY_DEFAULT.includes(categoryKey)
         };
       })
       .filter(group => group.certs.length > 0);
