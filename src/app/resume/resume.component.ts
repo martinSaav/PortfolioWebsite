@@ -1,5 +1,6 @@
-﻿import { Component, Inject, Renderer2 } from '@angular/core';
+import { Component, Inject, Renderer2 } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { CV_FILE_IDS, cvDownloadUrl, cvViewUrl } from '../_data/cv.data';
 
 @Component({
   standalone: false,
@@ -8,19 +9,21 @@ import { Title } from '@angular/platform-browser';
   styleUrl: './resume.component.css'
 })
 export class ResumeComponent {
-  
+
+  readonly cvIds = CV_FILE_IDS;
+
   constructor(@Inject(Title) private titleService: Title, @Inject(Renderer2) private renderer: Renderer2) {
     this.titleService.setTitle('Martin Estrada - Resume');
   }
 
   downloadFile(fileId: string) {
-    const googleDriveUrl = `https://drive.google.com/uc?export=download&id=${fileId}`;
     const link = this.renderer.createElement('a');
-    link.setAttribute('href', googleDriveUrl);
+    link.setAttribute('href', cvDownloadUrl(fileId));
     link.click();
     link.remove();
   }
-  openLink(link: string) {
-    window.open(link, '_blank');
+
+  viewFile(fileId: string) {
+    window.open(cvViewUrl(fileId), '_blank');
   }
 }

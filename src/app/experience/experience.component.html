@@ -1,0 +1,50 @@
+<div class="container mt-4 mb-4">
+  <h1 class="text-center">{{ 'EXP.TITLE' | translate }}</h1>
+  <p class="text-center">{{ 'EXP.DESC' | translate }}</p>
+
+  <div class="timeline">
+    <div *ngFor="let item of items; let i = index"
+         class="timeline-item"
+         [style.animation-delay.ms]="getDelay(i)">
+      <div class="timeline-marker" [class.current]="!item.end"></div>
+
+      <div class="exp-card">
+        <div class="exp-head">
+          <div class="exp-head-main">
+            <h3 class="exp-role">{{ item.experience.roleKey | translate }}</h3>
+            <p class="exp-company">
+              <a *ngIf="item.experience.companyUrl" [href]="item.experience.companyUrl" target="_blank" rel="noopener">{{ item.experience.company }}</a>
+              <span *ngIf="!item.experience.companyUrl">{{ item.experience.company }}</span>
+              <span *ngIf="item.experience.locationKey" class="exp-location"> · {{ item.experience.locationKey | translate }}</span>
+            </p>
+          </div>
+          <div class="exp-dates">
+            <span class="exp-range">
+              {{ item.start | date:'MMM yyyy':undefined:lang }} —
+              <ng-container *ngIf="item.end; else present">{{ item.end | date:'MMM yyyy':undefined:lang }}</ng-container>
+              <ng-template #present><span class="exp-present">{{ 'EXP.PRESENT' | translate }}</span></ng-template>
+            </span>
+            <span class="exp-duration">
+              <ng-container *ngIf="item.years">
+                {{ item.years }} {{ (item.years === 1 ? 'EXP.YEAR' : 'EXP.YEARS') | translate }}
+              </ng-container>
+              <ng-container *ngIf="item.months">
+                {{ item.months }} {{ (item.months === 1 ? 'EXP.MONTH' : 'EXP.MONTHS') | translate }}
+              </ng-container>
+            </span>
+          </div>
+        </div>
+
+        <p class="exp-summary">{{ item.experience.summaryKey | translate }}</p>
+
+        <ul class="exp-bullets">
+          <li *ngFor="let bullet of item.experience.bulletKeys">{{ bullet | translate }}</li>
+        </ul>
+
+        <div class="exp-tags">
+          <span *ngFor="let tag of item.experience.technologies" class="tag" [style.color]="tag.color">{{ tag }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

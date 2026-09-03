@@ -2,4 +2,58 @@
   background-color: #0f172a;
   border: 1px solid #334155 !important;
   border-radius: 0.375rem;
+  padding: 12px 14px;
+}
+
+.filter-label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #94a3b8;
+}
+
+.filter-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.filter-tag {
+  cursor: pointer;
+  opacity: 0.65;
+  transition: opacity 0.15s, box-shadow 0.15s;
+}
+
+.filter-tag:hover {
+  opacity: 1;
+}
+
+.filter-tag.selected {
+  opacity: 1;
+  box-shadow: 0 0 0 1px currentColor;
+}
+
+.filter-count {
+  display: inline-block;
+  min-width: 18px;
+  margin-left: 4px;
+  padding: 0 4px;
+  border-radius: 9px;
+  font-size: 11px;
+  line-height: 16px;
+  color: #0f172a;
+  background: #38bdf8;
+}
+
+.no-results {
+  color: #64748b;
+  font-family: 'Courier New', monospace;
+  font-size: 13px;
+  padding: 24px 0;
+}
+
+.project-col {
+  max-width: 380px;
 }

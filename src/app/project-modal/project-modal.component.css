@@ -18,12 +18,26 @@
   flex-shrink: 0;
 }
 
+.pm-header-main {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  min-width: 0;
+}
+
 .pm-title {
   font-size: 1.15rem;
   font-weight: 600;
   color: #f1f5f9;
   margin: 0;
   letter-spacing: 0.01em;
+}
+
+.pm-year {
+  font-family: 'Courier New', monospace;
+  font-size: 0.78rem;
+  color: #64748b;
+  flex-shrink: 0;
 }
 
 .pm-close {
@@ -75,26 +89,47 @@
   margin: 0;
 }
 
-.pm-visit-btn {
+.pm-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.pm-visit-btn,
+.pm-repo-btn {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
   padding: 0.45rem 1rem;
-  background: #0c4a6e;
-  color: #38bdf8;
-  border: 1px solid rgba(56, 189, 248, 0.3);
   border-radius: 6px;
   font-size: 0.82rem;
   font-weight: 600;
   text-decoration: none;
-  transition: background 0.2s, border-color 0.2s;
-  align-self: flex-start;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.pm-visit-btn {
+  background: #0c4a6e;
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.3);
 }
 
 .pm-visit-btn:hover {
   background: #0e5f8a;
   border-color: #38bdf8;
   color: #7dd3fc;
+}
+
+.pm-repo-btn {
+  background: transparent;
+  color: #94a3b8;
+  border: 1px solid #334155;
+}
+
+.pm-repo-btn:hover {
+  background: #1e293b;
+  border-color: #64748b;
+  color: #f1f5f9;
 }
 
 .pm-tags {

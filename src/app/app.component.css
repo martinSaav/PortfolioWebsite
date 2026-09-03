@@ -1,9 +1,10 @@
+/* Sticky en vez de fixed: la barra participa del flujo, así no hace falta
+   compensarla con un margin-top fijo en el body. */
 .fixed-header {
-  position: fixed;
+  position: sticky;
   width: 100%;
   z-index: 100;
   top: 0;
-  left: 0;
   background-color: #1e293b;
   border-bottom: 1px solid #334155;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);

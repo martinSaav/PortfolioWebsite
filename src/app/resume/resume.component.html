@@ -5,12 +5,12 @@
 <div class="text-center">
     <h2>{{ 'RESUME.SPANISH_TITLE' | translate }}</h2>
     <div class="d-flex justify-content-center">
-        <button class="btn btn-primary mb-5 shadow border" (click)="downloadFile('1O2pjeK1L7klouClx_4h8HWygIbzuKKR9')">{{ 'RESUME.SPANISH_DOWNLOAD' | translate }}</button>
-        <button class="btn btn-primary mb-5 shadow border" (click)="openLink('https://drive.google.com/file/d/1O2pjeK1L7klouClx_4h8HWygIbzuKKR9/view?usp=sharing')">{{ 'RESUME.SPANISH_VIEW' | translate }}</button>
+        <button class="btn btn-primary mb-5 shadow border" (click)="downloadFile(cvIds['es'])">{{ 'RESUME.SPANISH_DOWNLOAD' | translate }}</button>
+        <button class="btn btn-primary mb-5 shadow border" (click)="viewFile(cvIds['es'])">{{ 'RESUME.SPANISH_VIEW' | translate }}</button>
     </div>
     <h2>{{ 'RESUME.ENGLISH_TITLE' | translate }}</h2>
     <div class="d-flex justify-content-center">
-        <button class="btn btn-primary mb-5 shadow border" (click)="downloadFile('1o8cDH8J4RzCYwx7SJzNxrSKvVncYu7gU')">{{ 'RESUME.ENGLISH_DOWNLOAD' | translate }}</button>
-        <button class="btn btn-primary mb-5 shadow border" (click)="openLink('https://drive.google.com/file/d/1o8cDH8J4RzCYwx7SJzNxrSKvVncYu7gU/view?usp=sharing')">{{ 'RESUME.ENGLISH_VIEW' | translate }}</button>
+        <button class="btn btn-primary mb-5 shadow border" (click)="downloadFile(cvIds['en'])">{{ 'RESUME.ENGLISH_DOWNLOAD' | translate }}</button>
+        <button class="btn btn-primary mb-5 shadow border" (click)="viewFile(cvIds['en'])">{{ 'RESUME.ENGLISH_VIEW' | translate }}</button>
     </div>
 </div>

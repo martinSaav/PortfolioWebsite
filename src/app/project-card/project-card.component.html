@@ -2,18 +2,29 @@
   <div class="card-img-wrapper">
     <img *ngIf="project.images.length" [src]="project.images[0]" [alt]="project.name" class="card-preview-img">
     <div *ngIf="!project.images.length" class="card-no-img">
-      <span>{{ 'PORTFOLIO.NO_PREVIEW' | translate }}</span>
+      <span class="no-img-prompt">$</span>
+      <span class="no-img-name">{{ project.name }}</span>
+      <span class="no-img-hint">{{ 'PORTFOLIO.NO_PREVIEW' | translate }}</span>
     </div>
+    <span *ngIf="project.year" class="card-year">{{ project.year }}</span>
   </div>
   <div class="card-body">
     <h5 class="card-title">{{project.name}}</h5>
     <p class="card-text">{{ project.summaryKey | translate }}</p>
-    <button class="btn btn-primary" (click)="openProjectModal()">{{ 'PORTFOLIO.VIEW' | translate }}</button>
+    <div class="card-actions">
+      <button class="btn btn-primary btn-sm" (click)="openProjectModal()">{{ 'PORTFOLIO.VIEW' | translate }}</button>
+      <a *ngIf="project.repoLink"
+         [href]="project.repoLink"
+         target="_blank"
+         rel="noopener"
+         class="btn btn-outline-primary btn-sm"
+         (click)="$event.stopPropagation()">{{ 'PORTFOLIO.CODE' | translate }}</a>
+    </div>
   </div>
   <div class="card-footer">
     <div class="d-flex flex-wrap justify-content-center">
       <div *ngFor="let tag of project.technologies">
-        <div class="tag me-2 mb-1" [style.background-color]="tag.color">{{tag}}</div>
+        <div class="tag me-2 mb-1" [style.color]="tag.color">{{tag}}</div>
       </div>
     </div>
   </div>

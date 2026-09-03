@@ -18,6 +18,6 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.featuredProject = PROJECTS[0];
+    this.featuredProject = PROJECTS.find(project => project.featured) ?? PROJECTS[0];
   }
 }

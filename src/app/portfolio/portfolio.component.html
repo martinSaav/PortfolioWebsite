@@ -6,63 +6,32 @@
 
 <div class="mb-2">
     <div>
-        <button class="btn btn-outline-primary mb-2 me-2" (click)="toggleCollapse()">{{ 'PORTFOLIO.FILTER' | translate }}</button>
-        <button class="btn btn-outline-secondary mb-2 me-2"(click)="clearFilter()" [hidden]="!filtering">{{ 'PORTFOLIO.CLEAR' | translate }}</button>
+        <button class="btn btn-outline-primary mb-2 me-2" (click)="toggleCollapse()">
+            {{ 'PORTFOLIO.FILTER' | translate }}
+            <span *ngIf="filtering" class="filter-count">{{ selectedTags.length }}</span>
+        </button>
+        <button class="btn btn-outline-secondary mb-2 me-2" (click)="clearFilter()" [hidden]="!filtering">{{ 'PORTFOLIO.CLEAR' | translate }}</button>
     </div>
 </div>
 
 <div [@expandCollapse]="isCollapsed ? 'collapsed' : 'expanded'">
-    <div class="filter-panel mb-2" style="width: 250px;">
-        <form>
-            <div class="row mx-0">
-                <div class="col">
-                    <small><b>{{ 'PORTFOLIO.LANGUAGES' | translate }}</b></small>
-                    <div class="form-group">
-                        <div class="form-check">
-                            <input
-                            class="form-check-input position-static me-2"
-                            type="checkbox"
-                            [(ngModel)]="typeScript"
-                            (change)="filterProjects()"
-                            name="typeScript"
-                            >
-                            <label class="form-check-label">TypeScript</label>
-                        </div>
-                        <div class="form-check">
-                            <input
-                            class="form-check-input position-static me-2"
-                            type="checkbox"
-                            [(ngModel)]="javaScript"
-                            (change)="filterProjects()"
-                            name="javaScript"
-                            >
-                            <label class="form-check-label">javaScript</label>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col">
-                    <small><b>{{ 'PORTFOLIO.FRAMEWORKS' | translate }}</b></small>
-                    <div class="form-group">
-                        <div class="form-check">
-                            <input
-                            class="form-check-input position-static me-2"
-                            type="checkbox"
-                            [(ngModel)]="angular"
-                            (change)="filterProjects()"
-                            name="angular"
-                            >
-                            <label class="form-check-label">Angular</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </form>
+    <div class="filter-panel mb-3">
+        <small class="filter-label"><b>{{ 'PORTFOLIO.TECHNOLOGIES' | translate }}</b></small>
+        <div class="filter-tags">
+            <button *ngFor="let tag of availableTags"
+                    type="button"
+                    class="tag filter-tag"
+                    [class.selected]="isSelected(tag)"
+                    [style.color]="tag.color"
+                    (click)="toggleTag(tag)">{{ tag }}</button>
+        </div>
     </div>
 </div>
 
+<p *ngIf="!projects.length" class="text-center no-results">{{ 'PORTFOLIO.NO_RESULTS' | translate }}</p>
+
 <div class="row">
-    <div *ngFor="let project of projects" class="col-lg-4 col-md-6 col-sm-12 mb-4" style="max-width: 380px; min-width: 380px;">
+    <div *ngFor="let project of projects" class="col-lg-4 col-md-6 col-sm-12 mb-4 d-flex project-col">
         <app-project-card [project]="project" ></app-project-card>
     </div>
 </div>

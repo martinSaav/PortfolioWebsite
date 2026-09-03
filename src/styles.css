@@ -21,8 +21,13 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Los destinos de los links del nav se frenan por debajo de la barra sticky
+   en vez de quedar tapados por ella. */
+#home, #experience, #portfolio, #resume, #contact {
+  scroll-margin-top: 105px;
+}
+
 body {
-  margin-top: 200px;
   background-color: var(--bg-page);
   background-image: radial-gradient(circle, #334155 1px, transparent 1px);
   background-size: 24px 24px;
@@ -54,18 +59,28 @@ strong, b, small {
   color: var(--text-primary);
 }
 
-/* Tags */
+/* Tags
+   El color por tecnología llega desde Tag.color vía [style.color]; el fondo y el
+   borde se derivan de él para que todos los chips compartan el mismo peso visual. */
 .tag {
-  padding: 0 12px;
+  padding: 0 10px;
   height: 24px;
   width: fit-content;
   font-size: 12px;
-  line-height: 24px;
+  line-height: 22px;
   border-radius: 4px;
-  background-color: var(--accent-dim);
   color: var(--accent);
+  background-color: color-mix(in srgb, currentColor 12%, transparent);
+  border: 1px solid color-mix(in srgb, currentColor 32%, transparent);
   font-family: 'Courier New', monospace;
-  border: 1px solid rgba(56, 189, 248, 0.25);
+  white-space: nowrap;
+}
+
+@supports not (background-color: color-mix(in srgb, red 12%, transparent)) {
+  .tag {
+    background-color: var(--accent-dim);
+    border-color: rgba(56, 189, 248, 0.25);
+  }
 }
 
 /* Modal */

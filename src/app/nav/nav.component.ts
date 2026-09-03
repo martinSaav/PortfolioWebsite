@@ -42,7 +42,7 @@ export class NavComponent {
   }
 
   private updateActiveSection(): void {
-    const sections = ['home', 'portfolio', 'resume', 'contact'];
+    const sections = ['home', 'experience', 'portfolio', 'resume', 'contact'];
     const trigger = window.innerHeight * 0.45;
     let current = 'home';
     for (const id of sections) {
