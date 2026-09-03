@@ -1,17 +1,38 @@
 <div class="container mt-4">
   <h2 class="mb-4 text-center">{{ 'CERT.TITLE' | translate }}</h2>
-  <div *ngFor="let group of certsByCategory; let gi = index" class="cert-group mb-4">
-    <p class="group-label">{{ group.categoryKey | translate }}</p>
-    <div class="cert-grid">
-      <div *ngFor="let cert of group.certs; let ci = index"
-           class="cert-tile"
-           [style.animation-delay.ms]="getCertDelay(gi, ci)">
-        <img [src]="cert.image" [alt]="cert.nameKey | translate" class="cert-logo">
-        <div class="cert-info">
-          <p class="cert-name">{{ cert.nameKey | translate }}</p>
-          <p class="cert-org">{{ cert.issuingOrganization }}</p>
-          <p class="cert-date">{{ cert.issueDate | date:'MM/yyyy' }}</p>
-          <a [href]="cert.credentialUrl" target="_blank" class="cert-link">{{ 'CERT.VIEW' | translate }}</a>
+
+  <div *ngFor="let group of certsByCategory" class="cert-group mb-4">
+    <div class="cert-group-head" (click)="toggleGroup(group)">
+      <p class="group-label">{{ group.categoryKey | translate }}</p>
+      <span class="group-count">{{ group.certs.length }}</span>
+      <span class="group-rule"></span>
+      <button type="button"
+              class="group-toggle"
+              [attr.aria-expanded]="group.expanded"
+              [attr.aria-label]="(group.expanded ? 'CERT.COLLAPSE' : 'CERT.EXPAND') | translate">{{ group.expanded ? '−' : '+' }}</button>
+    </div>
+
+    <!-- Colapsada: sólo los logos en una fila. -->
+    <div *ngIf="!group.expanded" class="cert-strip" (click)="toggleGroup(group)">
+      <img *ngFor="let cert of group.certs"
+           [src]="cert.image"
+           [alt]="cert.nameKey | translate"
+           [title]="(cert.nameKey | translate) + ' · ' + cert.issuingOrganization"
+           class="strip-logo">
+    </div>
+
+    <div [@expandCollapse]="group.expanded ? 'expanded' : 'collapsed'">
+      <div class="cert-grid">
+        <div *ngFor="let cert of group.certs; let ci = index"
+             class="cert-tile"
+             [style.animation-delay.ms]="getCertDelay(ci)">
+          <img [src]="cert.image" [alt]="cert.nameKey | translate" class="cert-logo">
+          <div class="cert-info">
+            <p class="cert-name">{{ cert.nameKey | translate }}</p>
+            <p class="cert-org">{{ cert.issuingOrganization }}</p>
+            <p class="cert-date">{{ cert.issueDate | date:'MM/yyyy' }}</p>
+            <a [href]="cert.credentialUrl" target="_blank" rel="noopener" class="cert-link">{{ 'CERT.VIEW' | translate }}</a>
+          </div>
         </div>
       </div>
     </div>

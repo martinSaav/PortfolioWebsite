@@ -55,6 +55,8 @@
   "PORTFOLIO.CODE": "Code",
   "CERT.TITLE": "Certifications",
   "CERT.VIEW": "View certificate →",
+  "CERT.EXPAND": "Show details",
+  "CERT.COLLAPSE": "Hide details",
   "CERT.AWS": "AWS",
   "CERT.PROGRAMACION": "Programming",
   "CERT.TESTING": "Testing",

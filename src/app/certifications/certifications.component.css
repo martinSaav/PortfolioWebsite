@@ -1,3 +1,12 @@
+/* Cabecera de categoría: etiqueta, contador, filete y el botón +/−. */
+.cert-group-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
 .group-label {
   display: flex;
   align-items: center;
@@ -7,7 +16,79 @@
   color: #94a3b8;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  margin-bottom: 10px;
+  margin-bottom: 0;
+}
+
+.group-count {
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+  color: #64748b;
+}
+
+.group-rule {
+  flex: 1;
+  height: 1px;
+  background: #334155;
+}
+
+.group-toggle {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 1px solid #334155;
+  border-radius: 4px;
+  background: #0f172a;
+  color: #94a3b8;
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.cert-group-head:hover .group-toggle {
+  border-color: #38bdf8;
+  color: #38bdf8;
+}
+
+/* Vista colapsada: una fila con los logos de la categoría. Ajusta al contenido
+   para no dejar una barra vacía a lo ancho. */
+.cert-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  width: fit-content;
+  max-width: 100%;
+  gap: 14px;
+  padding: 10px 16px;
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.cert-strip:hover {
+  border-color: #38bdf8;
+}
+
+.strip-logo {
+  width: 46px;
+  height: 46px;
+  object-fit: contain;
+  opacity: 0.85;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.cert-strip:hover .strip-logo {
+  opacity: 1;
+}
+
+.strip-logo:hover {
+  transform: scale(1.12);
 }
 
 .group-label::before {
