@@ -41,7 +41,7 @@
   padding: 0;
   border: 1px solid #334155;
   border-radius: 4px;
-  background: #0f172a;
+  background: #1e293b;
   color: #94a3b8;
   font-size: 14px;
   line-height: 1;
@@ -64,7 +64,7 @@
   max-width: 100%;
   gap: 14px;
   padding: 10px 16px;
-  background: #0f172a;
+  background: #1e293b;
   border: 1px solid #334155;
   border-radius: 6px;
   cursor: pointer;
@@ -107,7 +107,7 @@
 }
 
 .cert-tile {
-  background: #0f172a;
+  background: #1e293b;
   border: 1px solid #334155;
   border-radius: 6px;
   padding: 10px 12px;

@@ -1,5 +1,7 @@
+/* El aire de arriba lo pone el padding de .page-section; acá sólo separa el
+   encabezado de su contenido. */
 .section-header {
-  padding: 1.5rem 0 1.75rem;
+  padding: 0 0 2.25rem;
 }
 
 .section-eyebrow {

@@ -10,11 +10,21 @@
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
 }
 
-.dark-section {
-  background-color: #1e293b;
-  border: 1px solid #334155;
-  border-radius: 0.5rem;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+/* Las secciones no son cajas: van directo sobre el fondo de la pagina y se
+   separan con aire y una linea fina. Las unicas cajas son los items (tarjetas
+   de proyecto, de experiencia, certificaciones), que asi si contrastan. */
+.page-section {
+  padding: 4rem 0;
+}
+
+.page-section + .page-section {
+  border-top: 1px solid #1e293b;
+}
+
+@media (max-width: 768px) {
+  .page-section {
+    padding: 2.5rem 0;
+  }
 }
 
 @keyframes fadeInUp {
