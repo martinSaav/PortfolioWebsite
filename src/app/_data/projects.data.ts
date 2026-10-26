@@ -7,6 +7,27 @@ import { Tag } from '../_models/Tag';
  */
 export const PROJECTS: Project[] = [
   {
+    id: 7,
+    name: 'Bot Ducky',
+    summaryKey: 'PROJECTS.DUCKY.SUMMARY',
+    descriptionKey: 'PROJECTS.DUCKY.DESCRIPTION',
+    repoLink: 'https://github.com/martinSaav/bot_ducky',
+    year: '2026',
+    images: [
+      './assets/imgs/ducky1.png',
+      './assets/imgs/ducky2.png'
+    ],
+    technologies: [
+      Tag.PYTHON,
+      Tag.RUST,
+      Tag.POSTGRESQL,
+      Tag.IA,
+      Tag.ANGULAR,
+      Tag.DOCKER,
+      Tag.CI_CD
+    ]
+  },
+  {
     id: 0,
     name: 'Theater Booking System',
     summaryKey: 'PROJECTS.THEATER.SUMMARY',
@@ -84,6 +105,23 @@ export const PROJECTS: Project[] = [
       './assets/imgs/concurrentes1.png'
     ],
     technologies: [Tag.ANGULAR, Tag.TYPESCRIPT, Tag.CSS]
+  },
+  {
+    id: 8,
+    name: 'Microservicios con BFF',
+    summaryKey: 'PROJECTS.SA_MICRO.SUMMARY',
+    descriptionKey: 'PROJECTS.SA_MICRO.DESCRIPTION',
+    repoLink: 'https://github.com/martinSaav/SA-TP2-microservices',
+    year: '2024',
+    images: ['./assets/imgs/sa_micro1.png'],
+    technologies: [
+      Tag.JAVA,
+      Tag.SPRING_BOOT,
+      Tag.MICROSERVICES,
+      Tag.MYSQL,
+      Tag.REST_API,
+      Tag.DOCKER
+    ]
   },
   {
     id: 4,

@@ -19,16 +19,17 @@ export const EXPERIENCES: Experience[] = [
       'EXP.UNITECH.B1',
       'EXP.UNITECH.B2',
       'EXP.UNITECH.B3',
-      'EXP.UNITECH.B4'
+      'EXP.UNITECH.B4',
+      'EXP.UNITECH.B5'
     ],
     technologies: [
       Tag.JAVA,
       Tag.QUARKUS,
-      Tag.ANGULAR,
-      Tag.IA,
-      Tag.RAG,
+      Tag.LANGCHAIN4J,
+      Tag.MCP,
+      Tag.KEYCLOAK,
       Tag.FLOWISE,
-      Tag.POSTGRESQL
+      Tag.ANGULAR
     ]
   },
   {
