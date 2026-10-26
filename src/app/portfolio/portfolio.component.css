@@ -1,5 +1,102 @@
-.filter-panel {
-  background-color: #0f172a;
-  border: 1px solid #334155 !important;
-  border-radius: 0.375rem;
+/* Barra de filtro: controles discretos, no botones protagonistas. */
+.filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.filter-toggle,
+.filter-clear {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0;
+  background: none;
+  border: none;
+  font-size: 0.82rem;
+  color: #94a3b8;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.filter-toggle:hover,
+.filter-clear:hover,
+.filter-toggle.open {
+  color: #f1f5f9;
+}
+
+.filter-toggle-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border: 1px solid #334155;
+  border-radius: 3px;
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  line-height: 1;
+}
+
+.filter-clear {
+  font-size: 0.78rem;
+  color: #64748b;
+}
+
+.filter-count {
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+  color: #38bdf8;
+}
+
+.filter-rule {
+  flex: 1;
+  height: 1px;
+  background: #1e293b;
+}
+
+.filter-total {
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+  color: #64748b;
+  flex-shrink: 0;
+}
+
+.filter-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 0 0 20px;
+}
+
+.filter-tag {
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.filter-tag:hover {
+  color: #f1f5f9;
+  border-color: #64748b;
+}
+
+.filter-tag.selected {
+  color: #38bdf8;
+  border-color: #38bdf8;
+}
+
+.no-results {
+  color: #64748b;
+  font-family: 'Courier New', monospace;
+  font-size: 13px;
+  padding: 32px 0;
+}
+
+/* Grilla fluida: las tarjetas se acomodan solas en vez de forzar un ancho fijo
+   que dejaba huecos raros al final de cada fila. */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 20px;
+  align-items: stretch;
 }

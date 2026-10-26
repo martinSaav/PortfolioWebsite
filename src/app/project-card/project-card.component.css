@@ -1,18 +1,33 @@
+:host {
+  display: flex;
+  width: 100%;
+}
+
 .project-card {
-  max-width: 350px;
-  min-width: 350px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
   overflow: hidden;
-  border: 1px solid #334155 !important;
-  transition: border-color 0.2s, box-shadow 0.2s !important;
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
 }
 
-.project-card:hover {
-  border-color: #38bdf8 !important;
-  box-shadow: 0 0 20px rgba(56, 189, 248, 0.12), 0 0 1px rgba(56, 189, 248, 0.3) !important;
+.project-card:hover,
+.project-card:focus-visible {
+  border-color: #475569;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+  outline: none;
 }
 
-.card-img-wrapper {
-  height: 160px;
+/* Imagen: relación fija para que todas las tarjetas arranquen igual, sin
+   importar el alto real de cada captura. */
+.card-media {
+  position: relative;
+  aspect-ratio: 16 / 10;
   background: #0f172a;
   overflow: hidden;
   border-bottom: 1px solid #334155;
@@ -22,20 +37,130 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.3s ease;
+  object-position: top center;
+  transition: transform 0.4s ease;
 }
 
 .project-card:hover .card-preview-img {
-  transform: scale(1.03);
+  transform: scale(1.04);
+}
+
+/* Difumina el borde inferior de la captura hacia el cuerpo de la tarjeta. */
+.card-media::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 45%;
+  background: linear-gradient(to bottom, transparent, rgba(15, 23, 42, 0.55));
+  pointer-events: none;
 }
 
 .card-no-img {
   width: 100%;
   height: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 6px;
   font-family: 'Courier New', monospace;
-  font-size: 12px;
+  background-image:
+    linear-gradient(rgba(148, 163, 184, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.05) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+.no-img-prompt {
+  color: #475569;
+  font-size: 26px;
+  line-height: 1;
+}
+
+.no-img-hint {
   color: #64748b;
+  font-size: 11px;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 16px 18px 18px;
+}
+
+.card-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 7px;
+}
+
+.card-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #f1f5f9;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.card-year {
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+  color: #64748b;
+  flex-shrink: 0;
+}
+
+.card-text {
+  font-size: 0.85rem;
+  color: #94a3b8;
+  line-height: 1.6;
+  margin: 0 0 14px;
+}
+
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 16px;
+}
+
+.tag-more {
+  font-family: 'Courier New', monospace;
+  font-size: 11.5px;
+  color: #64748b;
+}
+
+/* Pie anclado abajo para que todas las tarjetas de una fila lo alineen. */
+.card-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid #2b3a52;
+}
+
+.card-cta {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: #94a3b8;
+  transition: color 0.2s;
+}
+
+.project-card:hover .card-cta {
+  color: #38bdf8;
+}
+
+.card-repo {
+  display: flex;
+  align-items: center;
+  color: #64748b;
+  transition: color 0.2s;
+}
+
+.card-repo:hover {
+  color: #f1f5f9;
 }

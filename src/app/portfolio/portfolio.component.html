@@ -1,68 +1,36 @@
+<app-section-header eyebrowKey="PORTFOLIO.EYEBROW" headingKey="PORTFOLIO.TITLE" subKey="PORTFOLIO.DESC"></app-section-header>
 
-<div class="mt-4">
-    <h1 class="text-center">{{ 'PORTFOLIO.TITLE' | translate }}</h1>
-    <p class="text-center">{{ 'PORTFOLIO.DESC' | translate }}</p>
-</div>
-
-<div class="mb-2">
-    <div>
-        <button class="btn btn-outline-primary mb-2 me-2" (click)="toggleCollapse()">{{ 'PORTFOLIO.FILTER' | translate }}</button>
-        <button class="btn btn-outline-secondary mb-2 me-2"(click)="clearFilter()" [hidden]="!filtering">{{ 'PORTFOLIO.CLEAR' | translate }}</button>
-    </div>
+<div class="filter-bar">
+  <button type="button" class="filter-toggle" (click)="toggleCollapse()" [class.open]="!isCollapsed">
+    <span class="filter-toggle-icon">{{ isCollapsed ? '+' : '−' }}</span>
+    {{ 'PORTFOLIO.FILTER' | translate }}
+    @if (filtering) {
+      <span class="filter-count">{{ selectedTags.length }}</span>
+    }
+  </button>
+  <button type="button" class="filter-clear" (click)="clearFilter()" [hidden]="!filtering">{{ 'PORTFOLIO.CLEAR' | translate }}</button>
+  <span class="filter-rule"></span>
+  <span class="filter-total">{{ projects.length }} / {{ totalProjects }}</span>
 </div>
 
 <div [@expandCollapse]="isCollapsed ? 'collapsed' : 'expanded'">
-    <div class="filter-panel mb-2" style="width: 250px;">
-        <form>
-            <div class="row mx-0">
-                <div class="col">
-                    <small><b>{{ 'PORTFOLIO.LANGUAGES' | translate }}</b></small>
-                    <div class="form-group">
-                        <div class="form-check">
-                            <input
-                            class="form-check-input position-static me-2"
-                            type="checkbox"
-                            [(ngModel)]="typeScript"
-                            (change)="filterProjects()"
-                            name="typeScript"
-                            >
-                            <label class="form-check-label">TypeScript</label>
-                        </div>
-                        <div class="form-check">
-                            <input
-                            class="form-check-input position-static me-2"
-                            type="checkbox"
-                            [(ngModel)]="javaScript"
-                            (change)="filterProjects()"
-                            name="javaScript"
-                            >
-                            <label class="form-check-label">javaScript</label>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col">
-                    <small><b>{{ 'PORTFOLIO.FRAMEWORKS' | translate }}</b></small>
-                    <div class="form-group">
-                        <div class="form-check">
-                            <input
-                            class="form-check-input position-static me-2"
-                            type="checkbox"
-                            [(ngModel)]="angular"
-                            (change)="filterProjects()"
-                            name="angular"
-                            >
-                            <label class="form-check-label">Angular</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </form>
-    </div>
+  <div class="filter-tags">
+    @for (tag of availableTags; track tag) {
+      <button
+        type="button"
+        class="tag filter-tag"
+        [class.selected]="isSelected(tag)"
+      (click)="toggleTag(tag)">{{ tag }}</button>
+    }
+  </div>
 </div>
 
-<div class="row">
-    <div *ngFor="let project of projects" class="col-lg-4 col-md-6 col-sm-12 mb-4" style="max-width: 380px; min-width: 380px;">
-        <app-project-card [project]="project" ></app-project-card>
-    </div>
+@if (!projects.length) {
+  <p class="no-results">{{ 'PORTFOLIO.NO_RESULTS' | translate }}</p>
+}
+
+<div class="project-grid">
+  @for (project of projects; track project) {
+    <app-project-card [project]="project"></app-project-card>
+  }
 </div>

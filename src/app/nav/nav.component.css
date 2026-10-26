@@ -22,11 +22,19 @@ nav {
 
 .nav-links {
   flex: 1;
+  display: flex;
   justify-content: center;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
 }
 
 .nav-link {
-  color: #64748b;
+  display: block;
+  text-decoration: none;
+  color: #94a3b8;
   font-size: 0.875rem;
   letter-spacing: 0.04em;
   padding: 0.65rem 1rem;
@@ -35,7 +43,7 @@ nav {
 }
 
 .nav-link:hover {
-  color: #94a3b8;
+  color: #f1f5f9;
 }
 
 .nav-link.active {
@@ -63,7 +71,7 @@ nav {
 .lang-btn {
   background: none;
   border: none;
-  color: #64748b;
+  color: #94a3b8;
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.06em;
@@ -74,7 +82,7 @@ nav {
 }
 
 .lang-btn:hover {
-  color: #94a3b8;
+  color: #f1f5f9;
 }
 
 .lang-btn.active {

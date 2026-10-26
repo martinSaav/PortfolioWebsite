@@ -1,72 +1,82 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import { Title } from '@angular/platform-browser';
+import { Component, OnInit } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 import { Project } from '../_models/Project';
 import { Tag } from '../_models/Tag';
 import { PROJECTS } from '../_data/projects.data';
+import { SectionHeaderComponent } from '../section-header/section-header.component';
+import { ProjectCardComponent } from '../project-card/project-card.component';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
-  standalone: false,
-  selector: 'app-portfolio',
-  templateUrl: './portfolio.component.html',
-  styleUrl: './portfolio.component.css',
-  animations: [
-    trigger('expandCollapse', [
-      state('collapsed', style({ height: '0px', overflow: 'hidden', opacity: 0 })),
-      state('expanded', style({ height: '*', overflow: 'visible', opacity: 1 })),
-      transition('collapsed <=> expanded', animate('300ms ease-in-out'))
-    ])
-  ]
+    selector: 'app-portfolio',
+    templateUrl: './portfolio.component.html',
+    styleUrl: './portfolio.component.css',
+    animations: [
+        trigger('expandCollapse', [
+            state('collapsed', style({ height: '0px', overflow: 'hidden', opacity: 0 })),
+            state('expanded', style({ height: '*', overflow: 'visible', opacity: 1 })),
+            transition('collapsed <=> expanded', animate('300ms ease-in-out'))
+        ])
+    ],
+    imports: [SectionHeaderComponent, ProjectCardComponent, TranslatePipe]
 })
 export class PortfolioComponent implements OnInit {
 
   projects: Project[] = [];
 
-  isCollapsed: boolean = true;
-  javaScript: boolean = false;
-  typeScript: boolean = false;
-  angular: boolean = false;
-  filtering: boolean = false;
+  /** Todas las tecnologías presentes en los proyectos, ordenadas por uso. */
+  availableTags: Tag[] = [];
+  selectedTags: Tag[] = [];
 
-  constructor(@Inject(Title) private titleService: Title) {
-    this.titleService.setTitle('Martin Estrada - Portfolio');
-  }
+  isCollapsed = true;
+
+
+  readonly totalProjects = PROJECTS.length;
 
   ngOnInit(): void {
     this.projects = PROJECTS;
+    this.availableTags = this.collectTags();
+  }
+
+  get filtering(): boolean {
+    return this.selectedTags.length > 0;
   }
 
   toggleCollapse(): void {
     this.isCollapsed = !this.isCollapsed;
   }
 
-  filterProjects(): void {
-    const filterTags: Tag[] = [];
+  isSelected(tag: Tag): boolean {
+    return this.selectedTags.includes(tag);
+  }
 
-    if (this.javaScript) {
-      filterTags.push(Tag.JAVASCRIPT);
-    }
+  /** Un proyecto entra si tiene al menos una de las tecnologías elegidas. */
+  toggleTag(tag: Tag): void {
+    this.selectedTags = this.isSelected(tag)
+      ? this.selectedTags.filter(selected => selected !== tag)
+      : [...this.selectedTags, tag];
 
-    if (this.typeScript) {
-      filterTags.push(Tag.TYPESCRIPT);
-    }
-
-    if (this.angular) {
-      filterTags.push(Tag.ANGULAR);
-    }
-
-    this.filtering = filterTags.length > 0;
-
-    this.projects = PROJECTS.filter(
-      project => filterTags.every(tag => project.technologies.includes(tag))
-    );
+    this.projects = this.filtering
+      ? PROJECTS.filter(project =>
+          project.technologies.some(technology => this.selectedTags.includes(technology)))
+      : PROJECTS;
   }
 
   clearFilter(): void {
-    this.typeScript = false;
-    this.angular = false;
-    this.javaScript = false;
+    this.selectedTags = [];
     this.projects = PROJECTS;
-    this.filtering = false;
+  }
+
+  /** Tecnologías únicas de todos los proyectos, las más usadas primero. */
+  private collectTags(): Tag[] {
+    const usage = new Map<Tag, number>();
+    for (const project of PROJECTS) {
+      for (const technology of project.technologies) {
+        usage.set(technology, (usage.get(technology) ?? 0) + 1);
+      }
+    }
+    return [...usage.entries()]
+      .sort((a, b) => b[1] - a[1] || a[0].toString().localeCompare(b[0].toString()))
+      .map(([tag]) => tag);
   }
 }

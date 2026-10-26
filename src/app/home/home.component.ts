@@ -1,23 +1,21 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import { Title } from '@angular/platform-browser';
+import { Component, OnInit } from '@angular/core';
 import { Project } from '../_models/Project';
 import { PROJECTS } from '../_data/projects.data';
+import { CarouselComponent } from '../carousel/carousel.component';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
-  standalone: false,
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+    selector: 'app-home',
+    templateUrl: './home.component.html',
+    styleUrl: './home.component.css',
+    imports: [CarouselComponent, TranslatePipe]
 })
 export class HomeComponent implements OnInit {
 
   featuredProject: Project = {} as Project;
 
-  constructor(@Inject(Title) private titleService: Title) {
-    this.titleService.setTitle('Martin Estrada - Home');
-  }
 
   ngOnInit(): void {
-    this.featuredProject = PROJECTS[0];
+    this.featuredProject = PROJECTS.find(project => project.featured) ?? PROJECTS[0];
   }
 }

@@ -1,14 +1,15 @@
 import { ChangeDetectorRef, Component, Inject, OnDestroy } from '@angular/core';
 import { DialogRef, DIALOG_DATA } from '@angular/cdk/dialog';
 import { Project } from '../_models/Project';
-import { TranslateService } from '@ngx-translate/core';
+import { TranslateService, TranslatePipe } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
+import { CarouselComponent } from '../carousel/carousel.component';
 
 @Component({
-  standalone: false,
-  selector: 'app-project-modal',
-  templateUrl: './project-modal.component.html',
-  styleUrl: './project-modal.component.css'
+    selector: 'app-project-modal',
+    templateUrl: './project-modal.component.html',
+    styleUrl: './project-modal.component.css',
+    imports: [CarouselComponent, TranslatePipe]
 })
 export class ProjectModalComponent implements OnDestroy {
 

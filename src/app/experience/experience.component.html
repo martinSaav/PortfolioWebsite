@@ -1,0 +1,60 @@
+<div>
+  <app-section-header eyebrowKey="EXP.EYEBROW" headingKey="EXP.TITLE" subKey="EXP.DESC"></app-section-header>
+
+  <div class="timeline">
+    @for (item of items; track item; let i = $index) {
+      <div
+        class="timeline-item"
+        [style.animation-delay.ms]="getDelay(i)">
+        <div class="timeline-marker" [class.current]="!item.end"></div>
+        <div class="exp-card">
+          <div class="exp-head">
+            <div class="exp-head-main">
+              <h3 class="exp-role">{{ item.experience.roleKey | translate }}</h3>
+              <p class="exp-company">
+                @if (item.experience.companyUrl) {
+                  <a [href]="item.experience.companyUrl" target="_blank" rel="noopener">{{ item.experience.company }}</a>
+                }
+                @if (!item.experience.companyUrl) {
+                  <span>{{ item.experience.company }}</span>
+                }
+                @if (item.experience.locationKey) {
+                  <span class="exp-location"> · {{ item.experience.locationKey | translate }}</span>
+                }
+              </p>
+            </div>
+            <div class="exp-dates">
+              <span class="exp-range">
+                {{ item.start | date:'MMM yyyy':undefined:lang }} —
+                @if (item.end) {
+                  {{ item.end | date:'MMM yyyy':undefined:lang }}
+                } @else {
+                  <span class="exp-present">{{ 'EXP.PRESENT' | translate }}</span>
+                }
+              </span>
+              <span class="exp-duration">
+                @if (item.years) {
+                  {{ item.years }} {{ (item.years === 1 ? 'EXP.YEAR' : 'EXP.YEARS') | translate }}
+                }
+                @if (item.months) {
+                  {{ item.months }} {{ (item.months === 1 ? 'EXP.MONTH' : 'EXP.MONTHS') | translate }}
+                }
+              </span>
+            </div>
+          </div>
+          <p class="exp-summary">{{ item.experience.summaryKey | translate }}</p>
+          <ul class="exp-bullets">
+            @for (bullet of item.experience.bulletKeys; track bullet) {
+              <li>{{ bullet | translate }}</li>
+            }
+          </ul>
+          <div class="exp-tags">
+            @for (tag of item.experience.technologies; track tag) {
+              <span class="tag">{{ tag }}</span>
+            }
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</div>

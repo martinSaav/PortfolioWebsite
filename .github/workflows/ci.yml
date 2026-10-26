@@ -1,0 +1,77 @@
+name: CI
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build y tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Tests
+        run: npm test
+
+      - name: Build de producción
+        run: npm run build -- --configuration production --base-href=/PortfolioWebsite/
+
+      - name: Auditoría de dependencias de producción
+        run: npm audit --omit=dev --audit-level=high
+
+      - name: Guardar el build
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist/portfolio-website/browser
+          retention-days: 7
+
+  deploy:
+    name: Deploy a GitHub Pages
+    needs: build
+    if: github.ref == 'refs/heads/develop' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Build
+        run: npm run build -- --configuration production --base-href=/PortfolioWebsite/
+
+      - name: 404.html para que el routing funcione en Pages
+        run: cp dist/portfolio-website/browser/index.html dist/portfolio-website/browser/404.html
+
+      - name: Publicar en la rama gh-pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: dist/portfolio-website/browser
+          publish_branch: gh-pages
+          commit_message: "Deploy ${{ github.sha }}"

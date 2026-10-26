@@ -1,0 +1,32 @@
+<section class="hero">
+  <div class="hero-text">
+    <p class="hero-eyebrow">{{ 'HERO.LOCATION' | translate }}</p>
+
+    <h1 class="hero-name">Martín Estrada</h1>
+
+    <p class="hero-role">{{ displayedRole }}<span class="typing-cursor">|</span></p>
+
+    <p class="hero-pitch">{{ 'HERO.PITCH' | translate }}</p>
+
+    <div class="hero-stack">
+      <span>Java</span>
+      <span>Spring Boot</span>
+      <span>Quarkus</span>
+      <span>Angular</span>
+      <span>AWS</span>
+    </div>
+
+    <div class="hero-actions">
+      <a href="#portfolio" class="hero-btn primary" (click)="goToPortfolio($event)">{{ 'HERO.CTA_PROJECTS' | translate }}</a>
+      <button type="button" class="hero-btn ghost" (click)="downloadCv()">{{ 'HERO.CTA_CV' | translate }}</button>
+    </div>
+  </div>
+
+  <div class="hero-portrait">
+    <img src="./assets/imgs/foto_martin_estrada.jpeg"
+         alt="Martín Estrada"
+         width="220"
+         height="220"
+         class="portrait-img">
+  </div>
+</section>

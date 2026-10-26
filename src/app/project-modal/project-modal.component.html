@@ -1,26 +1,43 @@
 <div class="pm-wrap">
   <div class="pm-header">
-    <h2 class="pm-title">{{ project.name }}</h2>
+    <div class="pm-header-main">
+      <h2 class="pm-title">{{ project.name }}</h2>
+      @if (project.year) {
+        <span class="pm-year">{{ project.year }}</span>
+      }
+    </div>
     <button class="pm-close" (click)="closeProjectModal()">✕</button>
   </div>
 
   <div class="pm-body">
-    <div class="pm-carousel">
-      <app-carousel [images]="project.images"></app-carousel>
-    </div>
+    @if (project.images.length) {
+      <div class="pm-carousel">
+        <app-carousel [images]="project.images"></app-carousel>
+      </div>
+    }
 
     <div class="pm-info">
       <p class="pm-section-label">{{ 'MODAL.DESCRIPTION' | translate }}</p>
       <p class="pm-description">{{ project.descriptionKey | translate }}</p>
 
-      <a [href]="project.projectLink" target="_blank" class="pm-visit-btn">
-        {{ 'MODAL.VISIT' | translate }} →
-      </a>
+      <div class="pm-links">
+        @if (project.projectLink) {
+          <a [href]="project.projectLink" target="_blank" rel="noopener" class="pm-visit-btn">
+            {{ 'MODAL.VISIT' | translate }} →
+          </a>
+        }
+        @if (project.repoLink) {
+          <a [href]="project.repoLink" target="_blank" rel="noopener" class="pm-repo-btn">
+            {{ 'MODAL.CODE' | translate }} →
+          </a>
+        }
+      </div>
 
       <div class="pm-tags">
-        <span *ngFor="let tag of project.technologies"
-              class="tag"
-              [style.background-color]="tag.color">{{ tag }}</span>
+        @for (tag of project.technologies; track tag) {
+          <span
+          class="tag">{{ tag }}</span>
+        }
       </div>
     </div>
   </div>
