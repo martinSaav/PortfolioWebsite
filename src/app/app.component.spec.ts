@@ -1,35 +1,47 @@
 import { TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
+import { provideZonelessChangeDetection } from '@angular/core';
+import { provideRouter } from '@angular/router';
+import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
+import { provideNoopAnimations } from '@angular/platform-browser/animations';
+import { TranslateModule } from '@ngx-translate/core';
+import { registerLocaleData } from '@angular/common';
+import localeEs from '@angular/common/locales/es';
+
 import { AppComponent } from './app.component';
+
+// En producción lo hace app.config.ts al arrancar; el test no pasa por ahí y
+// la timeline de experiencia formatea fechas con DatePipe en español.
+registerLocaleData(localeEs, 'es');
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule
-      ],
-      declarations: [
-        AppComponent
-      ],
+      imports: [AppComponent, TranslateModule.forRoot()],
+      providers: [
+        provideZonelessChangeDetection(),
+        provideRouter([]),
+        provideHttpClient(),
+        provideHttpClientTesting(),
+        provideNoopAnimations()
+      ]
     }).compileComponents();
   });
 
-  it('should create the app', () => {
+  it('se crea', () => {
     const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
+    expect(fixture.componentInstance).toBeTruthy();
   });
 
-  it(`should have as title 'PortfolioWebsite'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('PortfolioWebsite');
-  });
-
-  it('should render title', () => {
+  it('renderiza las secciones con su id, que es lo que usa el nav', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, PortfolioWebsite');
+    const el = fixture.nativeElement as HTMLElement;
+
+    for (const id of ['home', 'experience', 'portfolio', 'resume', 'contact']) {
+      expect(el.querySelector(`#${id}`))
+        .withContext(`falta la sección #${id}`)
+        .toBeTruthy();
+    }
   });
 });

@@ -1,22 +1,24 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import { Title } from '@angular/platform-browser';
+import { Component, OnInit } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 import { Project } from '../_models/Project';
 import { Tag } from '../_models/Tag';
 import { PROJECTS } from '../_data/projects.data';
+import { SectionHeaderComponent } from '../section-header/section-header.component';
+import { ProjectCardComponent } from '../project-card/project-card.component';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
-  standalone: false,
-  selector: 'app-portfolio',
-  templateUrl: './portfolio.component.html',
-  styleUrl: './portfolio.component.css',
-  animations: [
-    trigger('expandCollapse', [
-      state('collapsed', style({ height: '0px', overflow: 'hidden', opacity: 0 })),
-      state('expanded', style({ height: '*', overflow: 'visible', opacity: 1 })),
-      transition('collapsed <=> expanded', animate('300ms ease-in-out'))
-    ])
-  ]
+    selector: 'app-portfolio',
+    templateUrl: './portfolio.component.html',
+    styleUrl: './portfolio.component.css',
+    animations: [
+        trigger('expandCollapse', [
+            state('collapsed', style({ height: '0px', overflow: 'hidden', opacity: 0 })),
+            state('expanded', style({ height: '*', overflow: 'visible', opacity: 1 })),
+            transition('collapsed <=> expanded', animate('300ms ease-in-out'))
+        ])
+    ],
+    imports: [SectionHeaderComponent, ProjectCardComponent, TranslatePipe]
 })
 export class PortfolioComponent implements OnInit {
 
@@ -28,9 +30,8 @@ export class PortfolioComponent implements OnInit {
 
   isCollapsed = true;
 
-  constructor(@Inject(Title) private titleService: Title) {
-    this.titleService.setTitle('Martin Estrada - Portfolio');
-  }
+
+  readonly totalProjects = PROJECTS.length;
 
   ngOnInit(): void {
     this.projects = PROJECTS;

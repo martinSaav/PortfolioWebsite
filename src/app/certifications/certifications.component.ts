@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 import { Certification } from '../_models/Certification';
 import { CERTIFICATIONS } from '../_data/certifications.data';
+import { SectionHeaderComponent } from '../section-header/section-header.component';
+import { DatePipe } from '@angular/common';
+import { TranslatePipe } from '@ngx-translate/core';
 
 interface CertGroup {
   categoryKey: string;
@@ -16,17 +19,17 @@ interface CertGroup {
 const EXPANDED_BY_DEFAULT = ['CERT.AWS'];
 
 @Component({
-  standalone: false,
-  selector: 'app-certifications',
-  templateUrl: './certifications.component.html',
-  styleUrl: './certifications.component.css',
-  animations: [
-    trigger('expandCollapse', [
-      state('collapsed', style({ height: '0px', overflow: 'hidden', opacity: 0 })),
-      state('expanded', style({ height: '*', overflow: 'visible', opacity: 1 })),
-      transition('collapsed <=> expanded', animate('280ms ease-in-out'))
-    ])
-  ]
+    selector: 'app-certifications',
+    templateUrl: './certifications.component.html',
+    styleUrl: './certifications.component.css',
+    animations: [
+        trigger('expandCollapse', [
+            state('collapsed', style({ height: '0px', overflow: 'hidden', opacity: 0 })),
+            state('expanded', style({ height: '*', overflow: 'visible', opacity: 1 })),
+            transition('collapsed <=> expanded', animate('280ms ease-in-out'))
+        ])
+    ],
+    imports: [SectionHeaderComponent, DatePipe, TranslatePipe]
 })
 export class CertificationsComponent implements OnInit {
 

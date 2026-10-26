@@ -26,16 +26,12 @@
             "outputPath": "dist/portfolio-website",
             "index": "src/index.html",
             "browser": "src/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -85,10 +81,6 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ],
             "tsConfig": "tsconfig.spec.json",
             "assets": [
               "src/favicon.ico",
@@ -98,14 +90,6 @@
               "src/styles.css"
             ],
             "scripts": []
-          }
-        },
-        "deploy": {
-          "builder": "angular-cli-ghpages:deploy",
-          "options": {
-            "baseHref": "/PortfolioWebsite/",
-            "repo": "https://github.com/martinSaav/PortfolioWebsite.git",
-            "dir": "dist/portfolio-website/browser"
           }
         }
       }

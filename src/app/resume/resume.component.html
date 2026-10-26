@@ -2,15 +2,17 @@
   <app-section-header eyebrowKey="RESUME.EYEBROW" headingKey="RESUME.TITLE" subKey="RESUME.DESC"></app-section-header>
 
   <div class="cv-cards">
-    <div *ngFor="let cv of options" class="cv-card">
-      <div class="cv-card-main">
-        <span class="cv-flag">{{ cv.lang | uppercase }}</span>
-        <p class="cv-title">{{ cv.titleKey | translate }}</p>
+    @for (cv of options; track cv) {
+      <div class="cv-card">
+        <div class="cv-card-main">
+          <span class="cv-flag">{{ cv.lang | uppercase }}</span>
+          <p class="cv-title">{{ cv.titleKey | translate }}</p>
+        </div>
+        <div class="cv-actions">
+          <button type="button" class="cv-btn primary" (click)="downloadFile(cv.fileId)">{{ 'RESUME.DOWNLOAD' | translate }}</button>
+          <button type="button" class="cv-btn ghost" (click)="viewFile(cv.fileId)">{{ 'RESUME.VIEW' | translate }}</button>
+        </div>
       </div>
-      <div class="cv-actions">
-        <button type="button" class="cv-btn primary" (click)="downloadFile(cv.fileId)">{{ 'RESUME.DOWNLOAD' | translate }}</button>
-        <button type="button" class="cv-btn ghost" (click)="viewFile(cv.fileId)">{{ 'RESUME.VIEW' | translate }}</button>
-      </div>
-    </div>
+    }
   </div>
 </div>

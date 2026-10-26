@@ -1,8 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
+import { TranslateService, TranslatePipe } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
 import { Experience } from '../_models/Experience';
 import { EXPERIENCES } from '../_data/experience.data';
+import { SectionHeaderComponent } from '../section-header/section-header.component';
+import { DatePipe } from '@angular/common';
 
 interface ExperienceView {
   experience: Experience;
@@ -13,10 +15,10 @@ interface ExperienceView {
 }
 
 @Component({
-  standalone: false,
-  selector: 'app-experience',
-  templateUrl: './experience.component.html',
-  styleUrl: './experience.component.css'
+    selector: 'app-experience',
+    templateUrl: './experience.component.html',
+    styleUrl: './experience.component.css',
+    imports: [SectionHeaderComponent, DatePipe, TranslatePipe]
 })
 export class ExperienceComponent implements OnInit, OnDestroy {
 

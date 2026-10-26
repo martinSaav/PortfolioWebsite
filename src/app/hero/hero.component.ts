@@ -1,14 +1,14 @@
 import { AfterViewInit, ChangeDetectorRef, Component, Inject, OnDestroy, PLATFORM_ID, Renderer2 } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
-import { TranslateService } from '@ngx-translate/core';
+import { TranslateService, TranslatePipe } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
 import { CV_FILE_IDS, cvDownloadUrl } from '../_data/cv.data';
 
 @Component({
-  standalone: false,
-  selector: 'app-hero',
-  templateUrl: './hero.component.html',
-  styleUrl: './hero.component.css'
+    selector: 'app-hero',
+    templateUrl: './hero.component.html',
+    styleUrl: './hero.component.css',
+    imports: [TranslatePipe]
 })
 export class HeroComponent implements AfterViewInit, OnDestroy {
 

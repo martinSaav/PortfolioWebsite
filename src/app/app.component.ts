@@ -1,12 +1,21 @@
 ﻿import { AfterViewInit, Component, ElementRef, Inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { TranslateService } from '@ngx-translate/core';
+import { HeaderComponent } from './header/header.component';
+import { NavComponent } from './nav/nav.component';
+import { HeroComponent } from './hero/hero.component';
+import { HomeComponent } from './home/home.component';
+import { ExperienceComponent } from './experience/experience.component';
+import { PortfolioComponent } from './portfolio/portfolio.component';
+import { CertificationsComponent } from './certifications/certifications.component';
+import { ResumeComponent } from './resume/resume.component';
+import { ContactComponent } from './contact/contact.component';
 
 @Component({
-  standalone: false,
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.css',
+    imports: [HeaderComponent, NavComponent, HeroComponent, HomeComponent, ExperienceComponent, PortfolioComponent, CertificationsComponent, ResumeComponent, ContactComponent]
 })
 export class AppComponent implements AfterViewInit {
 
