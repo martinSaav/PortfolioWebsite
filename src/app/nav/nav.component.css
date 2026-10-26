@@ -22,10 +22,18 @@ nav {
 
 .nav-links {
   flex: 1;
+  display: flex;
   justify-content: center;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
 }
 
 .nav-link {
+  display: block;
+  text-decoration: none;
   color: #94a3b8;
   font-size: 0.875rem;
   letter-spacing: 0.04em;

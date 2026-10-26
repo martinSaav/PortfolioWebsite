@@ -1,32 +1,35 @@
-<div class="carousel-container position-relative overflow-hidden rounded">
-  <div *ngIf="images.length > 0; else noImages">
-    <img [src]="images[currentIndex]" alt="project image" class="d-block w-100 carousel-img">
-  </div>
-
-  <ng-template #noImages>
-    <div class="d-flex align-items-center justify-content-center bg-secondary text-white carousel-img">
+<div class="carousel-container">
+  @if (images.length > 0) {
+    <img
+      [src]="images[currentIndex]"
+      alt="project image"
+      class="carousel-img">
+  } @else {
+    <div class="carousel-empty carousel-img">
       <span>{{ 'CAROUSEL.NO_IMAGES' | translate }}</span>
     </div>
-  </ng-template>
+  }
 
-  <ng-container *ngIf="images.length > 1">
-    <button class="carousel-control-prev" type="button" (click)="prev()">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">{{ 'CAROUSEL.PREV' | translate }}</span>
-    </button>
-    <button class="carousel-control-next" type="button" (click)="next()">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">{{ 'CAROUSEL.NEXT' | translate }}</span>
-    </button>
 
+  @if (images.length > 1) {
+    <button class="carousel-nav prev" type="button" (click)="prev()" [attr.aria-label]="'CAROUSEL.PREV' | translate">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"
+      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+    </button>
+    <button class="carousel-nav next" type="button" (click)="next()" [attr.aria-label]="'CAROUSEL.NEXT' | translate">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"
+      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+    </button>
     <div class="carousel-indicators-custom">
-      <button
-        *ngFor="let img of images; let i = index"
-        type="button"
-        class="indicator-dot"
-        [class.active]="i === currentIndex"
-        (click)="goTo(i)">
-      </button>
+      @for (img of images; track img; let i = $index) {
+        <button
+          type="button"
+          class="indicator-dot"
+          [class.active]="i === currentIndex"
+          [attr.aria-label]="i + 1"
+          (click)="goTo(i)">
+        </button>
+      }
     </div>
-  </ng-container>
+  }
 </div>

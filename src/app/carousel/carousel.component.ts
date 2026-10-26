@@ -1,10 +1,11 @@
 import { Component, Input } from '@angular/core';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
-  standalone: false,
-  selector: 'app-carousel',
-  templateUrl: './carousel.component.html',
-  styleUrl: './carousel.component.css'
+    selector: 'app-carousel',
+    templateUrl: './carousel.component.html',
+    styleUrl: './carousel.component.css',
+    imports: [TranslatePipe]
 })
 export class CarouselComponent {
   @Input() images: string[] = [];

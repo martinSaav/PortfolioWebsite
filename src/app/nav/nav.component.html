@@ -1,15 +1,17 @@
 <div class="scroll-progress-bar">
   <div class="scroll-progress-fill" [style.width.%]="scrollProgress"></div>
 </div>
-<nav class="navbar-expand-md">
+<nav>
   <div class="container nav-container">
-    <ul class="nav nav-links">
-      <li *ngFor="let section of sections" class="nav-item">
-        <a class="nav-link"
-           [class.active]="activeSection === section.id"
-           [href]="'#' + section.id"
-           (click)="goTo(section.id, $event)">{{ section.labelKey | translate }}</a>
-      </li>
+    <ul class="nav-links">
+      @for (section of sections; track section) {
+        <li>
+          <a class="nav-link"
+            [class.active]="activeSection === section.id"
+            [href]="'#' + section.id"
+          (click)="goTo(section.id, $event)">{{ section.labelKey | translate }}</a>
+        </li>
+      }
     </ul>
     <div class="lang-toggle">
       <button class="lang-btn" [class.active]="currentLang === 'es'" (click)="setLang('es')">ES</button>

@@ -1,6 +1,6 @@
 import { Component, HostListener, Inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
-import { TranslateService } from '@ngx-translate/core';
+import { TranslateService, TranslatePipe } from '@ngx-translate/core';
 
 interface NavSection {
   id: string;
@@ -8,10 +8,10 @@ interface NavSection {
 }
 
 @Component({
-  standalone: false,
-  selector: 'app-nav',
-  templateUrl: './nav.component.html',
-  styleUrl: './nav.component.css'
+    selector: 'app-nav',
+    templateUrl: './nav.component.html',
+    styleUrl: './nav.component.css',
+    imports: [TranslatePipe]
 })
 export class NavComponent {
 

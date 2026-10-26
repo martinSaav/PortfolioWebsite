@@ -13,6 +13,12 @@
   --accent-dim: #0c4a6e;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 * {
   font-family: 'Roboto', sans-serif;
 }
@@ -60,27 +66,21 @@ strong, b, small {
 }
 
 /* Tags
-   El color por tecnología llega desde Tag.color vía [style.color]; el fondo y el
-   borde se derivan de él para que todos los chips compartan el mismo peso visual. */
+   Un solo color para todas las tecnologías: siete chips de siete colores en una
+   misma tarjeta compiten entre sí y no aportan información. La jerarquía la da
+   la tipografía, y el acento se reserva para lo que es accionable. */
 .tag {
-  padding: 0 10px;
-  height: 24px;
+  padding: 0 9px;
+  height: 22px;
   width: fit-content;
-  font-size: 12px;
-  line-height: 22px;
-  border-radius: 4px;
-  color: var(--accent);
-  background-color: color-mix(in srgb, currentColor 12%, transparent);
-  border: 1px solid color-mix(in srgb, currentColor 32%, transparent);
+  font-size: 11.5px;
+  line-height: 20px;
+  border-radius: 3px;
+  color: var(--text-secondary);
+  background-color: transparent;
+  border: 1px solid var(--border-color);
   font-family: 'Courier New', monospace;
   white-space: nowrap;
-}
-
-@supports not (background-color: color-mix(in srgb, red 12%, transparent)) {
-  .tag {
-    background-color: var(--accent-dim);
-    border-color: rgba(56, 189, 248, 0.25);
-  }
 }
 
 /* Modal */
@@ -94,138 +94,42 @@ strong, b, small {
   outline: none;
 }
 
-/* Bootstrap card overrides */
-.card {
-  background-color: var(--bg-surface) !important;
-  border-color: var(--border-color) !important;
-  color: var(--text-primary) !important;
+/* Layout
+   Reemplaza lo poco que se usaba de Bootstrap (container, grid, utilidades
+   sueltas). Antes se cargaban ~420 KB de CSS para esto. */
+.container {
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 16px;
 }
 
-.card-title {
-  color: var(--text-primary) !important;
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
-.card-subtitle,
-.text-muted {
-  color: var(--text-secondary) !important;
+[hidden] {
+  display: none !important;
 }
 
-.card-footer {
-  background-color: var(--bg-surface) !important;
-  border-top-color: var(--border-color) !important;
+button {
+  font: inherit;
+  color: inherit;
 }
 
-.card-link {
-  color: var(--accent) !important;
+img {
+  max-width: 100%;
 }
 
-.card-link:hover {
-  color: var(--accent-hover) !important;
-}
-
-/* Bootstrap button overrides */
-.btn-primary {
-  background-color: var(--accent) !important;
-  border-color: var(--accent) !important;
-  color: #0f172a !important;
-  font-weight: 500;
-}
-
-.btn-primary:hover,
-.btn-primary:focus {
-  background-color: var(--accent-hover) !important;
-  border-color: var(--accent-hover) !important;
-  color: #0f172a !important;
-}
-
-.btn-outline-primary {
-  color: var(--accent) !important;
-  border-color: var(--accent) !important;
-  background-color: transparent !important;
-}
-
-.btn-outline-primary:hover {
-  background-color: var(--accent-dim) !important;
-  color: var(--accent) !important;
-}
-
-.btn-outline-secondary {
-  color: var(--text-secondary) !important;
-  border-color: var(--border-color) !important;
-  background-color: transparent !important;
-}
-
-.btn-outline-secondary:hover {
-  background-color: var(--bg-surface-2) !important;
-  color: var(--text-primary) !important;
-  border-color: var(--border-color) !important;
-}
-
-/* Bootstrap form overrides */
-.form-control {
-  background-color: var(--bg-surface-2) !important;
-  border-color: var(--border-color) !important;
-  color: var(--text-primary) !important;
-}
-
-.form-control:focus {
-  background-color: var(--bg-surface-2) !important;
-  border-color: var(--accent) !important;
-  color: var(--text-primary) !important;
-  box-shadow: 0 0 0 0.2rem rgba(56, 189, 248, 0.2) !important;
-}
-
-.form-label {
-  color: var(--text-secondary) !important;
-}
-
-.form-check-input {
-  background-color: var(--bg-surface-2) !important;
-  border-color: var(--border-color) !important;
-}
-
-.form-check-input:checked {
-  background-color: var(--accent) !important;
-  border-color: var(--accent) !important;
-}
-
-.form-check-label {
-  color: var(--text-secondary) !important;
-}
-
-/* Bootstrap list-group overrides */
-.list-group-item {
-  background-color: var(--bg-surface) !important;
-  border-color: var(--border-color) !important;
-  color: var(--text-primary) !important;
-}
-
-.list-group-item-action:hover,
-.list-group-item-action:focus {
-  background-color: var(--bg-surface-2) !important;
-  color: var(--accent) !important;
-}
-
-/* Bootstrap utilities */
-.border {
-  border-color: var(--border-color) !important;
-}
-
-.shadow,
-.shadow-sm {
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4) !important;
-}
-
-.text-muted,
-.text-secondary {
-  color: var(--text-secondary) !important;
-}
-
-.text-dark {
-  color: var(--text-primary) !important;
-}
-
-.img-thumbnail {
-  background-color: transparent !important;
-  border: none !important;
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }

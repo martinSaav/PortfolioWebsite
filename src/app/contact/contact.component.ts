@@ -1,15 +1,12 @@
-﻿import { Component, Inject } from '@angular/core';
-import { Title } from '@angular/platform-browser';
+import { Component } from '@angular/core';
+import { SectionHeaderComponent } from '../section-header/section-header.component';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
-  standalone: false,
-  selector: 'app-contact',
-  templateUrl: './contact.component.html',
-  styleUrl: './contact.component.css'
+    selector: 'app-contact',
+    templateUrl: './contact.component.html',
+    styleUrl: './contact.component.css',
+    imports: [SectionHeaderComponent, TranslatePipe]
 })
 export class ContactComponent {
-  
-  constructor(@Inject(Title) private titleService: Title) {
-    this.titleService.setTitle('Martin Estrada - Contact');
-  }
 }
