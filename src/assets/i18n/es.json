@@ -25,7 +25,7 @@
   "EXP.YEARS": "años",
   "EXP.MONTH": "mes",
   "EXP.MONTHS": "meses",
-  "EXP.UNITECH.ROLE": "Desarrollador de software",
+  "EXP.UNITECH.ROLE": "Desarrollador de software junior",
   "EXP.UNITECH.LOCATION": "Buenos Aires, Argentina",
   "EXP.UNITECH.SUMMARY": "Desarrollo backend en Java y Quarkus para Mind Flow, una plataforma de agentes de IA para la gestión de expedientes, con soluciones para el Gobierno de la Ciudad de Buenos Aires (GCBA).",
   "EXP.UNITECH.B1": "Diseño y desarrollo de la librería de multitenancy que usan los servicios de Mind, con datos y login separados por cliente.",
