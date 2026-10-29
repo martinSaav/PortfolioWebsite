@@ -2,7 +2,48 @@ import { Certification } from '../_models/Certification';
 
 export const CERTIFICATIONS: Certification[] = [
   {
+    nameKey: 'CERTS.JAVA_CONCURRENCY',
+    logoText: 'Udemy',
+    issuingOrganization: 'Udemy',
+    issueDate: new Date('2026-10-15T00:00:00'),
+    credentialUrl: 'https://unitech.udemy.com/certificate/UC-607f6fb6-6271-4668-8be7-8e032c1619c5/',
+    category: 'CERT.PROGRAMACION'
+  },
+  {
+    nameKey: 'CERTS.RUST_CRASH',
+    logoText: 'Udemy',
+    issuingOrganization: 'Udemy',
+    issueDate: new Date('2026-04-15T00:00:00'),
+    credentialUrl: 'https://ude.my/UC-4307a199-8ae0-4a3e-8e4c-60a3062805d9',
+    category: 'CERT.PROGRAMACION'
+  },
+  {
+    nameKey: 'CERTS.WIRESHARK',
+    logoText: 'Udemy',
+    issuingOrganization: 'Udemy',
+    issueDate: new Date('2026-05-15T00:00:00'),
+    credentialUrl: 'https://ude.my/UC-010aea51-6366-4a0d-afad-4796d01f49e6',
+    category: 'CERT.SEGURIDAD'
+  },
+  {
+    nameKey: 'CERTS.AWS_AI_SDLC',
+    logoText: 'AWS',
+    issuingOrganization: 'Amazon Web Services',
+    issueDate: new Date('2026-08-15T00:00:00'),
+    credentialUrl: 'https://www.credly.com/badges/891e23b4-b016-46b8-8cb4-1cbc530d2673/public_url',
+    category: 'CERT.AWS'
+  },
+  {
+    nameKey: 'CERTS.AWS_SECURITY',
+    logoText: 'AWS',
+    issuingOrganization: 'AWS Educate',
+    issueDate: new Date('2025-02-20T00:00:00'),
+    credentialUrl: 'https://www.credly.com/badges/73cf6a54-4ac8-4ee1-b235-5daf99904021/public_url',
+    category: 'CERT.AWS'
+  },
+  {
     nameKey: 'CERTS.JAVA_MICROSERVICES',
+    descriptionKey: 'CERTS.JAVA_MICROSERVICES_DESC',
     image: './assets/imgs/sistemas_activos_srl_logo.jpg',
     imageWidth: 100,
     issuingOrganization: 'Sistemas Activos S.R.L',

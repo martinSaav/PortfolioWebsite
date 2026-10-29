@@ -128,6 +128,20 @@
   animation: certSlideIn 0.4s ease both;
 }
 
+/* La certificación con descripción propia se lleva la fila entera: en una
+   celda de 220px el texto la estiraría seis líneas y rompería la grilla. */
+.cert-tile.has-desc {
+  grid-column: 1 / -1;
+  align-items: flex-start;
+}
+
+.cert-desc {
+  font-size: 11px;
+  line-height: 1.45;
+  color: #94a3b8;
+  margin: 4px 0 0;
+}
+
 .cert-tile:hover {
   border-color: #38bdf8;
   box-shadow: 0 0 16px rgba(56, 189, 248, 0.1), 0 0 1px rgba(56, 189, 248, 0.3);
@@ -146,6 +160,23 @@
   border: none;
   background: transparent;
 }
+
+/* Las certificaciones sin logo propio (cursos de Udemy, insignias nuevas de
+   AWS) muestran el nombre del emisor en un chip del mismo tamaño. */
+.logo-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #334155;
+  border-radius: 4px;
+  color: #94a3b8;
+  font-family: 'Courier New', monospace;
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  text-transform: lowercase;
+}
+
+.strip-logo.logo-text { font-size: 11px; }
 
 .cert-info {
   flex: 1;
