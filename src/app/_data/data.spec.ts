@@ -73,8 +73,17 @@ describe('datos del sitio', () => {
   describe('certificaciones', () => {
     it('cada una tiene categoría con el prefijo CERT. y fecha válida', () => {
       for (const c of CERTIFICATIONS) {
-        expect(c.category).withContext(c.nameKey).toMatch(/^CERT\.[A-Z]+$/);
+        expect(c.category).withContext(c.nameKey).toMatch(/^CERT\.[A-Z_]+$/);
         expect(isNaN(c.issueDate.getTime())).withContext(c.nameKey).toBeFalse();
+      }
+    });
+
+    it('cada una tiene logo propio o un texto para mostrar en su lugar', () => {
+      for (const c of CERTIFICATIONS) {
+        expect(!!(c.image || c.logoText)).withContext(c.nameKey).toBeTrue();
+        if (c.image) {
+          expect(c.image).withContext(c.nameKey).toMatch(/^\.\/assets\/imgs\/.+\.(png|jpe?g|webp|svg)$/);
+        }
       }
     });
   });

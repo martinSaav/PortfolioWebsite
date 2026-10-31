@@ -33,7 +33,7 @@ describe('traducciones', () => {
     const usadas = [
       ...PROJECTS.flatMap(p => [p.summaryKey, p.descriptionKey]),
       ...EXPERIENCES.flatMap(e => [e.roleKey, e.summaryKey, ...e.bulletKeys, ...(e.locationKey ? [e.locationKey] : [])]),
-      ...CERTIFICATIONS.flatMap(c => [c.nameKey, c.category])
+      ...CERTIFICATIONS.flatMap(c => [c.nameKey, c.category, ...(c.descriptionKey ? [c.descriptionKey] : [])])
     ];
     const faltan = usadas.filter(k => !(k in ES) || !(k in EN));
     expect([...new Set(faltan)]).toEqual([]);

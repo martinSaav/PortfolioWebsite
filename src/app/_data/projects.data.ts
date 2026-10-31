@@ -32,7 +32,9 @@ export const PROJECTS: Project[] = [
     name: 'Theater Booking System',
     summaryKey: 'PROJECTS.THEATER.SUMMARY',
     descriptionKey: 'PROJECTS.THEATER.DESCRIPTION',
-    projectLink: 'https://teatro-gran-espectaculo-front.vercel.app/events',
+    // Sin demo: la instancia EC2 que servía la API ya no está levantada, y el
+    // frontend sin backend muestra una tabla vacía. Volver a poner el link
+    // cuando se redespliegue.
     repoLink: 'https://github.com/martinSaav/theater-booking-system',
     year: '2025',
     featured: true,

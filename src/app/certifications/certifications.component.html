@@ -16,11 +16,17 @@
       @if (!group.expanded) {
         <div class="cert-strip" (click)="toggleGroup(group)">
           @for (cert of group.certs; track cert) {
-            <img
-              [src]="cert.image"
-              [alt]="cert.nameKey | translate"
-              [title]="(cert.nameKey | translate) + ' · ' + cert.issuingOrganization"
-              class="strip-logo">
+            @if (cert.image) {
+              <img
+                [src]="cert.image"
+                [alt]="cert.nameKey | translate"
+                [title]="(cert.nameKey | translate) + ' · ' + cert.issuingOrganization"
+                class="strip-logo">
+            } @else {
+              <span
+                class="strip-logo logo-text"
+                [title]="(cert.nameKey | translate) + ' · ' + cert.issuingOrganization">{{ cert.logoText }}</span>
+            }
           }
         </div>
       }
@@ -31,14 +37,22 @@
           @for (cert of group.certs; track cert; let ci = $index) {
             <a
               class="cert-tile"
+              [class.has-desc]="cert.descriptionKey"
               [style.animation-delay.ms]="getCertDelay(ci)"
               [href]="cert.credentialUrl || null"
               [attr.target]="cert.credentialUrl ? '_blank' : null"
               rel="noopener">
-              <img [src]="cert.image" [alt]="cert.nameKey | translate" class="cert-logo">
+              @if (cert.image) {
+                <img [src]="cert.image" [alt]="cert.nameKey | translate" class="cert-logo">
+              } @else {
+                <span class="cert-logo logo-text" aria-hidden="true">{{ cert.logoText }}</span>
+              }
               <div class="cert-info">
                 <p class="cert-name">{{ cert.nameKey | translate }}</p>
                 <p class="cert-meta">{{ cert.issuingOrganization }} · {{ cert.issueDate | date:'MM/yyyy' }}</p>
+                @if (cert.descriptionKey) {
+                  <p class="cert-desc">{{ cert.descriptionKey | translate }}</p>
+                }
               </div>
               @if (cert.credentialUrl) {
                 <span class="cert-arrow">→</span>
